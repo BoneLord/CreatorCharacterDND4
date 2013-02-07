@@ -1,0 +1,18 @@
+#ifndef FEAT_H
+#define FEAT_H
+
+#include "feattype.h"
+#include "armortype.h"
+#include <vector>
+
+class Feat {
+    std::vector<FeatType> feats;
+public:
+    Feat();
+    ~Feat();
+    int setFeat(FeatType f);
+    int retraining(FeatType oldFeat, FeatType newFeat);
+    bool getFeet(FeatType f) const;
+};
+
+#endif // FEAT_H
