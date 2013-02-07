@@ -33,3 +33,6 @@ Eladrin::Eladrin() : Race() {
     countFeat = 0;
     feats = 0;
 }
+
+Eladrin::~Eladrin() {
+}
