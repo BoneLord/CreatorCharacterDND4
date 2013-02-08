@@ -1,5 +1,12 @@
 #include "race.h"
 #include "dragonborn.h"
+#include "dwarf.h"
+#include "eladrin.h"
+#include "elf.h"
+#include "halfelf.h"
+#include "halfling.h"
+#include "human.h"
+#include "tiefling.h"
 
 Race::~Race() {
     delete [] languages;
@@ -133,27 +140,27 @@ Race* Race::createRace(RaceType raceType) {
     case dragonBorn:
         race = new Dragonborn();
         break;
-//    case dwarf:
-//        race = new Dwarf();
-//        break;
-//    case eladrin:
-//        race = new Eladrin();
-//        break;
-//    case elf:
-//        race = new Elf();
-//        break;
-//    case halfElf:
-//        race = new HalfElf();
-//        break;
-//    case halfling:
-//        race = new Halfling();
-//        break;
-//    case human:
-//        race = new Human();
-//        break;
-//    case tiefling:
-//        race = new Tiefling();
-//        break;
+    case dwarf:
+        race = new Dwarf();
+        break;
+    case eladrin:
+        race = new Eladrin();
+        break;
+    case elf:
+        race = new Elf();
+        break;
+    case halfElf:
+        race = new HalfElf();
+        break;
+    case halfling:
+        race = new Halfling();
+        break;
+    case human:
+        race = new Human();
+        break;
+    case tiefling:
+        race = new Tiefling();
+        break;
     default:
         return 0;
     }

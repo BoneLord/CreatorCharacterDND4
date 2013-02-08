@@ -328,6 +328,18 @@ int Character::getTotalExpereance() const {
     return expereance;
 }
 
+RaceType Character::getRace() const {
+    return race->getRace();
+}
+
+ClassType Character::getClass() const {
+    return classCharacter->getClass();
+}
+
+Size Character::getSize() const {
+    return race->getSize();
+}
+
 int Character::getInitiative() const {
     return (getDexMod() + level/2/* + feat + misc*/);
 }

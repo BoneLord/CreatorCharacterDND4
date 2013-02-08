@@ -74,6 +74,9 @@ public:
     int getAge() const;
     int getLevel() const;
     int getTotalExpereance() const;
+    RaceType getRace() const;
+    ClassType getClass() const;
+    Size getSize() const;
 //    void addExpereance(int value);
 
     // Common

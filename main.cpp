@@ -28,8 +28,214 @@ char* genderToChar(Gender gender) {
     }
 }
 
+char* alignmentToChar(Alignment alignment) {
+    switch (alignment) {
+    case good:
+        return "good";
+    case lawful:
+        return "lawful";
+    case evil:
+        return "evil";
+    case chaoticEvil:
+        return "chaotic evil";
+    case unaligned:
+        return "unaligned";
+    }
+    return 0;
+}
+
+char* armorTypeToChar(ArmorType armor) {
+    switch (armor) {
+    case chainmail:
+        return "chainmail";
+    case leather:
+        return "leather";
+    case hide:
+        return "hide";
+    case plate:
+        return "plate";
+    case scale:
+        return "scale";
+    case cloth:
+        return "cloth";
+    }
+    return 0;
+}
+
+char* sizeToChar(Size size) {
+    switch (size) {
+    case tiny:
+        return "tiny";
+    case small:
+        return "small";
+    case medium:
+        return "medium";
+    case large:
+        return "large";
+    case huge:
+        return "huge";
+    case gargantuan:
+        return "gargantuan";
+    }
+    return 0;
+}
+
+
+char* armorKindToChar(ArmorKind armor) {
+    if (armor == lightArmor) {
+        return "lightArmor";
+    }
+    else {
+        return "heavyArmor";
+    }
+}
+
+char* classTypeToChar(ClassType classT) {
+    switch (classT) {
+    case cleric:
+        return "cleric";
+    case fighter:
+        return "fighter";
+    case paladin:
+        return "paladin";
+    case ranger:
+        return "ranger";
+    case rogue:
+        return "rogue";
+    case warlock:
+        return "warlock";
+    case warlord:
+        return "warlord";
+    case wizard:
+        return "wizard";
+    }
+    return 0;
+}
+
+char* defenseTypeToChar(DefenseType defense) {
+    switch (defense) {
+    case armorClass:
+        return "armor class";
+    case fortitude:
+        return "fortitude";
+    case reflex:
+        return "reflex";
+    case will:
+        return "will";
+    }
+    return 0;
+}
+
+char* deityTypeToChar(DeityType deity) {
+    switch (deity) {
+    case undefined:
+        return "";
+    case Avandra:
+        return "Avandra";
+    case Bahamut:
+        return "Bahamut";
+    case Corellon:
+        return "Corellon";
+    case Erathis:
+        return "Erathis";
+    case Ioun:
+        return "Ioun";
+    case Kord:
+        return "Kord";
+    case Melora:
+        return "Melora";
+    case Moradin:
+        return "Moradin";
+    case Pelor:
+        return "Pelor";
+    case TheRavenQueen:
+        return "The Raven Queen";
+    case Sehanine:
+        return "Sehanine";
+    case Asmodeus:
+        return "Asmodeus";
+    case Bane:
+        return "Bane";
+    case Gruumsh:
+        return "Gruumsh";
+    case Lolth:
+        return "Lolth";
+    case Tiamat:
+        return "Tiamat";
+    case Torog:
+        return "Torog";
+    case Vecna:
+        return "Vecna";
+    case Zehir:
+        return "Zehir";
+    }
+    return 0;
+}
+
+char* languageToChar(Language language) {
+    switch (language) {
+    case choiceOfOneOther:
+        return "choice of one other";
+    case common:
+        return "common";
+    case deepSpeech:
+        return "deep speech";
+    case draconic:
+        return "draconic";
+    case dwarven:
+        return "dwarven";
+    case elven:
+        return "elven";
+    case giant:
+        return "giant";
+    case goblin:
+        return "goblin";
+    case primordial:
+        return "primordial";
+    case supernal:
+        return "supernal";
+    case abyssal:
+        return "abyssal";
+    }
+    return 0;
+}
+
+char* raceToChar(RaceType race) {
+    switch (race) {
+    case dragonBorn:
+        return "dragonborn";
+    case dwarf:
+        return "dwarf";
+    case eladrin:
+        return "eladrin";
+    case elf:
+        return "elf";
+    case halfElf:
+        return "halfelf";
+    case halfling:
+        return "halfling";
+    case human:
+        return "human";
+    case tiefling:
+        return "tiefling";
+    }
+    return 0;
+}
+
+char* visionToChar(Vision vision) {
+    switch (vision) {
+    case normal:
+        return "normal";
+    case lowLight:
+        return "low-light";
+    case dark:
+        return "dark";
+    }
+    return 0;
+}
+
 int main() {
-    Character character(dragonBorn, cleric, "Vondal", "Oleg", "", 21, male, 190, 100);
+    Character character(dwarf, cleric, "Vondal", "Oleg", "", 21, male, 190, 100);
     if (character.setAlignment(good) < 0) {
         std::cout << "Error1!" << std::endl;
     }
@@ -63,12 +269,13 @@ int main() {
     std::cout << "Character name: " << character.getNameCharacter() << std::endl;
     std::cout << "Command name: " << character.getNameCommand() << std::endl;
     std::cout << "Level: " << character.getLevel() << std::endl;
-//    std::cout << "Class: " << character.getClass() << std::endl;
-//    std::cout << "Race: " << character.getRace() << std::endl;
+    std::cout << "Class: " << classTypeToChar(character.getClass()) << std::endl;
+    std::cout << "Race: " << raceToChar(character.getRace()) << std::endl;
     std::cout << "Total XP: " << character.getTotalExpereance() << std::endl;
-//    std::cout << "Size: " << character.getSize() << std::endl;
-    std::cout << "Alignment: " << character.getAlignment() << std::endl;
-    std::cout << "DeityType: " << character.getDeityType() << std::endl;
+    std::cout << "Size: " << sizeToChar(character.getSize()) << std::endl;
+    std::cout << "Vision: " << visionToChar(character.getVision()) << std::endl;
+    std::cout << "Alignment: " << alignmentToChar(character.getAlignment()) << std::endl;
+    std::cout << "DeityType: " << deityTypeToChar(character.getDeityType()) << std::endl;
     std::cout << "Initiative: " << character.getInitiative() << std::endl;
     std::cout << "Strength: " << character.getStrScore() << std::endl;
     std::cout << "Strength mod: " << character.getStrMod() << std::endl;
