@@ -2,16 +2,16 @@
 #define WEAPONPROP_H
 
 enum WeaponProp {
-    pHeavyThrown = 0,       // Тяжёлое метательное
-    pHighCrit,				// Высококритичное
-    pLightThrown,    		// Лёгкое метательное
-    pOffHand,				// Дополнительное
-    pReach,  				// Досягаемость
-    pSmall,  				// Маленькое
-    pVersatile,             // Универсальное
-    pNoFeature,             // Нет особых свойств
-    pLoadFree,              // Перезарядка свободным действием
-    pLoadMinor              // Перезарядка малым действием
+    pHeavyThrown = 0,
+    pHighCrit,
+    pLightThrown,
+    pOffHand,
+    pReach,
+    pSmall,
+    pVersatile,
+    pNoFeature,
+    pLoadFree,
+    pLoadMinor
 };
 
 #endif // WEAPONPROP_H

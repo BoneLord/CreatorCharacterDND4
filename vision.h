@@ -2,9 +2,9 @@
 #define VISION_H
 
 enum Vision {
-    normal = 0,     // Обычное
-    lowLight,      // Сумеречное
-    dark            // Тёмное
+    normal = 0,
+    lowLight,
+    dark
 };
 
 #endif // VISION_H

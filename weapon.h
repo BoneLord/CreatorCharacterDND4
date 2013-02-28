@@ -5,8 +5,6 @@
 #include "groupweapon.h"
 #include "weaponprop.h"
 
-// ћагические свойства не учитываютс€ (пока)
-
 class Weapon {
     WeaponType weaponType;
     int bonusProf;

@@ -4,16 +4,14 @@
 #include "armortype.h"
 #include "armorkind.h"
 
-// Магические свойства не учитываются (пока)
-
 class Armor {
 protected:
-    int armorBonus;                 // бонус к классу защиты
-    int skillPenalty;               // штраф к навыкам
-    int speedPenalty;               // штраф к скорости
-    int price;                      // цена
-    int weight;                     // вес
-    ArmorKind armorKind;            // тип доспеха
+    int armorBonus;
+    int skillPenalty;
+    int speedPenalty;
+    int price;
+    int weight;
+    ArmorKind armorKind;
 public:
     Armor();
     virtual ~Armor();

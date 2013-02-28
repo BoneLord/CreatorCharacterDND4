@@ -10,11 +10,6 @@
 #include "bonusdefense.h"
 #include "feattype.h"
 
-/**
-  Здесь надо реализовать просмотр особенностей расы (умения/таланты).
-  Создать классы-наследники для других рас
-*/
-
 class Race {
 protected:
     int avgMinHeight;
@@ -27,20 +22,20 @@ protected:
     Vision vision;
     RaceType raceType;
 
-    Language *languages;                    // Языки
-    int countLanguage;                      // Количество языков
+    Language *languages;
+    int countLanguage;
 
-    BonusAbility **abilityScoreBonus;       // Значение бонусных характеристик
-    int countAbltScBns;                     // Количество бонусных характеристик
+    BonusAbility **abilityScoreBonus;
+    int countAbltScBns;
 
-    BonusSkill **skillBonus;                // Значение бонусных навыков
-    int countSkllBns;                       // Количество бонусных навыков
+    BonusSkill **skillBonus;
+    int countSkllBns;
 
-    BonusDefense **defenseBonus;            // Значение бонусных защит
-    int countDfnsBns;                       // Количество бонусных защит
+    BonusDefense **defenseBonus;
+    int countDfnsBns;
 
-    FeatType *feats;                        // Расовые черты
-    int countFeat;                          // Количество черт
+    FeatType *feats;
+    int countFeat;
 public:
     virtual ~Race();
     int getAverageMinHeight() const;

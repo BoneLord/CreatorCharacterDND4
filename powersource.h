@@ -2,13 +2,13 @@
 #define POWERSOURCE_H
 
 enum PowerSource {
-    arcane = 0,         // Магический
-    divine,             // Духовный
-    martial,            // Воиский
-    elemental,          // Стихийный
-    primal,             // Первобытный
-    psionic,            // Псионический
-    shadow              // Теневой
+    arcane = 0,
+    divine,
+    martial,
+    elemental,
+    primal,
+    psionic,
+    shadow
 };
 
 #endif // POWERSOURCE_H

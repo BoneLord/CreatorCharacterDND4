@@ -2,11 +2,11 @@
 #define IMPLEMENTTYPE_H
 
 enum ImplementType {
-    staff = 0,                          // посох
-    orb,                                // сфера
-    wand,                               // волшебная палочка
-    rod,                                // жезл
-    holySymbol                          // символ веры
+    staff = 0,
+    orb,
+    wand,
+    rod,
+    holySymbol
 };
 
 #endif // IMPLEMENTTYPE_H

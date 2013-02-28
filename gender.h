@@ -2,8 +2,8 @@
 #define GENDER_H
 
 enum Gender {
-    male,       // Мужской
-    female      // Женский
+    male,
+    female
 };
 
 #endif // GENDER_H

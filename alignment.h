@@ -2,11 +2,11 @@
 #define ALIGNMENT_H
 
 enum Alignment {
-    good,           // Добрый
-    lawful,         // Законно-добрый
-    evil,           // Злой
-    chaoticEvil,    // Хаотично-злой
-    unaligned       // Без мировоззрения
+    good,
+    lawful,
+    evil,
+    chaoticEvil,
+    unaligned
 };
 
 #endif // ALIGNMENT_H

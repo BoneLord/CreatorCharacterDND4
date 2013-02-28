@@ -16,41 +16,34 @@
 #include "equipment.h"
 #include "feat.h"
 
-/**
-  Сделать учёт:
-        1) Черт
-        2) Вещей
-  Которые влияют на характеристики.
-  */
-
 class Character {
-    char *nameCharacter;                    // Имя персонажа
-    char *namePlayer;                       // Имя игрока
-    char *nameCommand;                      // Команда или название организации
-    Gender gender;                          // Пол
-    Alignment alignment;                    // Мировозрение
-    DeityType deityType;                    // Божество или вера
-    int weight;                             // Вес
-    int height;                             // Рост
-    int age;                                // Возраст
-    int level;                              // Уровень персонажа
-    int expereance;                         // Количество опыта
-    int strength;                           // Сила
-    int constitution;                       // Телосложение
-    int dexterity;                          // Ловкость
-    int intellect;                          // Интеллект
-    int wisdom;                             // Мудрость
-    int charisma;                           // Обаяние
-    Race *race;                             // Раса
-    ClassCharacter *classCharacter;         // Класс
-    TableSkill skills;                      // Навыки
-    int countMaxSkill;                      // Количество тренированных навыков
-    bool flagSetAlignment;                  // Факт того, что мировоззрение было выбрано
-    bool flagSetDeity;                      // Факт того, что божество было выбрано
-    Language *languages;                    // Известные языки
-    int countLanguage;                      // Количество известных языков
-    Equipment equipment;                    // Снаряжение персонажа
-    Feat feats;                             // Черты
+    char *nameCharacter;
+    char *namePlayer;
+    char *nameCommand;
+    Gender gender;
+    Alignment alignment;
+    DeityType deityType;
+    int weight;
+    int height;
+    int age;
+    int level;
+    int expereance;
+    int strength;
+    int constitution;
+    int dexterity;
+    int intellect;
+    int wisdom;
+    int charisma;
+    Race *race;
+    ClassCharacter *classCharacter;
+    TableSkill skills;
+    int countMaxSkill;
+    bool flagSetAlignment;
+    bool flagSetDeity;
+    Language *languages;
+    int countLanguage;
+    Equipment equipment;
+    Feat feats;
     int getPositiveMod(int value) const;
     int getArmorSpeedPenalty() const;
     int getArmorSkillPenalty() const;
