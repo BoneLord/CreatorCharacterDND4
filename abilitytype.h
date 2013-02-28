@@ -2,12 +2,12 @@
 #define ABILITYTYPE_H
 
 enum AbilityType {
-    strength_t = 0,           // Сила
-    constitution_t,           // Телосложение
-    dexterity_t,              // Ловкость
-    intellect_t,              // Интеллект
-    wisdom_t,                 // Мудрость
-    charisma_t                // Обаяние
+    strength_t = 0,
+    constitution_t,
+    dexterity_t,
+    intellect_t,
+    wisdom_t,
+    charisma_t
 };
 
 #endif // ABILITYTYPE_H

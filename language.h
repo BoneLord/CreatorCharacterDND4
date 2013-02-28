@@ -2,17 +2,17 @@
 #define LANGUAGE_H
 
 enum Language {
-    choiceOfOneOther = 0,   // На выбор
-    common,                 // Общий
-    deepSpeech,             // Глубинная речь
-    draconic,               // Драконий
-    dwarven,                // Дварфский
-    elven,                  // Эльфийский
-    giant,                  // Великаний
-    goblin,                 // Гоблинский
-    primordial,             // Первичный
-    supernal,               // Небесный
-    abyssal                 // Бездны
+    choiceOfOneOther = 0,
+    common,
+    deepSpeech,
+    draconic,
+    dwarven,
+    elven,
+    giant,
+    goblin,
+    primordial,
+    supernal,
+    abyssal
 };
 
 #endif // LANGUAGE_H

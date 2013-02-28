@@ -2,20 +2,20 @@
 #define GROUPWEAPON_H
 
 enum GroupWeapon {
-    gAxe = 0,                        // топоры
-    gBow,                            // лук
-    gCrossbow,                       // арбалет
-    gFlail,                          // цеп
-    gHammer,                         // молот
-    gHeavyBlade,                     // тяжёлый клинок
-    gLightBlade,                     // легкий клинок
-    gMace,                           // булава
-    gPick,                           // клевец
-    gPolearm,                        // древковое оружие
-    gSling,                          // праща
-    gSpear,                          // копьё
-    gStaff,                          // боевой посох
-    gUnarmed                         // невооружённый
+    gAxe = 0,
+    gBow,
+    gCrossbow,
+    gFlail,
+    gHammer,
+    gHeavyBlade,
+    gLightBlade,
+    gMace,
+    gPick,
+    gPolearm,
+    gSling,
+    gSpear,
+    gStaff,
+    gUnarmed
 };
 
 #endif // GROUPWEAPON_H

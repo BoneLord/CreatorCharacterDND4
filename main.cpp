@@ -5,19 +5,36 @@
 #include "equipment.h"
 
 /**
-  Коды ошибок:
-   0 - всё хорошо;
-  -1 - нельзя тренировать навык второй раз;
-  -2 - нельзя снять навык с тренировки (он не был тренирован);
-  -3 - превышено максимальное количество навыков для тренировки;
-  -4 - нельзя тренировать не классовые навыки;
-  -5 - выбранное божество не совместимо с вашим мировоззрением;
-  -6 - выбранное мировоззрение не совместимо с выбранным божеством;
-  -7 - новые языки больше изучать нельзя (превышено количество доступных языков);
-  -8 - данный язык вы уже знаете;
-  -9 - данную черту вы уже знаете;
-  -10 - такой черты для переобучения нет;
+  РљРѕРґС‹ РѕС€РёР±РѕРє:
+   0 - РІСЃС‘ С…РѕСЂРѕС€Рѕ;
+  -1 - РЅРµР»СЊР·СЏ С‚СЂРµРЅРёСЂРѕРІР°С‚СЊ РЅР°РІС‹Рє РІС‚РѕСЂРѕР№ СЂР°Р·;
+  -2 - РЅРµР»СЊР·СЏ СЃРЅСЏС‚СЊ РЅР°РІС‹Рє СЃ С‚СЂРµРЅРёСЂРѕРІРєРё (РѕРЅ РЅРµ Р±С‹Р» С‚СЂРµРЅРёСЂРѕРІР°РЅ);
+  -3 - РїСЂРµРІС‹С€РµРЅРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РЅР°РІС‹РєРѕРІ РґР»СЏ С‚СЂРµРЅРёСЂРѕРІРєРё;
+  -4 - РЅРµР»СЊР·СЏ С‚СЂРµРЅРёСЂРѕРІР°С‚СЊ РЅРµ РєР»Р°СЃСЃРѕРІС‹Рµ РЅР°РІС‹РєРё;
+  -5 - РІС‹Р±СЂР°РЅРЅРѕРµ Р±РѕР¶РµСЃС‚РІРѕ РЅРµ СЃРѕРІРјРµСЃС‚РёРјРѕ СЃ РІР°С€РёРј РјРёСЂРѕРІРѕР·Р·СЂРµРЅРёРµРј;
+  -6 - РІС‹Р±СЂР°РЅРЅРѕРµ РјРёСЂРѕРІРѕР·Р·СЂРµРЅРёРµ РЅРµ СЃРѕРІРјРµСЃС‚РёРјРѕ СЃ РІС‹Р±СЂР°РЅРЅС‹Рј Р±РѕР¶РµСЃС‚РІРѕРј;
+  -7 - РЅРѕРІС‹Рµ СЏР·С‹РєРё Р±РѕР»СЊС€Рµ РёР·СѓС‡Р°С‚СЊ РЅРµР»СЊР·СЏ (РїСЂРµРІС‹С€РµРЅРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РґРѕСЃС‚СѓРїРЅС‹С… СЏР·С‹РєРѕРІ);
+  -8 - РґР°РЅРЅС‹Р№ СЏР·С‹Рє РІС‹ СѓР¶Рµ Р·РЅР°РµС‚Рµ;
+  -9 - РґР°РЅРЅСѓСЋ С‡РµСЂС‚Сѓ РІС‹ СѓР¶Рµ Р·РЅР°РµС‚Рµ;
+  -10 - С‚Р°РєРѕР№ С‡РµСЂС‚С‹ РґР»СЏ РїРµСЂРµРѕР±СѓС‡РµРЅРёСЏ РЅРµС‚;
 */
+
+class ErrorMessage {
+    ErrorMessage();
+public:
+    ~ErrorMessage();
+    static char * textError(int errorID = 0);
+};
+
+ErrorMessage::ErrorMessage() {
+}
+
+ErrorMessage::~ErrorMessage() {
+}
+
+static char * ErrorMessage::textError(int errorID) {
+    return 0;
+}
 
 char* genderToChar(Gender gender) {
     if (gender == male) {
@@ -246,7 +263,7 @@ int main() {
         std::cout << "Error3!" << std::endl;
     }
     if (character.setSkillTrained(religion) == -1) {
-        std::cout << "нельзя тренировать навык второй раз!" << std::endl;
+        std::cout << "" << std::endl;
     }
     if (character.setSkillTrained(arcana) < 0) {
         std::cout << "Error4!" << std::endl;
@@ -319,11 +336,10 @@ int main() {
     std::cout << "Passive perception: " << character.getPassivePerception() << std::endl;
 
 
-// Тестирование снаряжения игрока (доспехи)
 //    Equipment eq;
 //    eq.setArmor(scale);
 //    Armor const * const armor = eq.getArmor();
-//    std::cout << "Чушуйчатый доспех" << std::endl;
+//    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
 //    std::cout << "Skill penalty: " << armor->getSkillPenalty() << std::endl;
@@ -332,7 +348,7 @@ int main() {
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
 
 //    eq.setArmor(chainmail);
-//    std::cout << "Кольчужный доспех" << std::endl;
+//    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
 //    std::cout << "Skill penalty: " << armor->getSkillPenalty() << std::endl;
@@ -341,7 +357,7 @@ int main() {
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
 
 //    eq.setArmor(leather);
-//    std::cout << "Кожанный доспех" << std::endl;
+//    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
 //    std::cout << "Skill penalty: " << armor->getSkillPenalty() << std::endl;
@@ -350,7 +366,7 @@ int main() {
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
 
 //    eq.setArmor(hide);
-//    std::cout << "Доспех из шкур" << std::endl;
+//    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
 //    std::cout << "Skill penalty: " << armor->getSkillPenalty() << std::endl;
@@ -359,7 +375,7 @@ int main() {
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
 
 //    eq.setArmor(plate);
-//    std::cout << "Латный доспех" << std::endl;
+//    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
 //    std::cout << "Skill penalty: " << armor->getSkillPenalty() << std::endl;
@@ -368,7 +384,7 @@ int main() {
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
 
 //    eq.setArmor(cloth);
-//    std::cout << "Тканевый доспех" << std::endl;
+//    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
 //    std::cout << "Skill penalty: " << armor->getSkillPenalty() << std::endl;

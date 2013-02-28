@@ -12,25 +12,25 @@
 
 class ClassCharacter {
 protected:
-    BonusDefense **defenseBonus;            // Значение бонусных защит
-    int countDfnsBns;                       // Количество бонусных защит
-    SkillType *classSkill;                  // Классовые навыки
-    int countClassSkill;                    // Количество классовых навыков
-    SkillType *trainedSkill;                // Тренированные навыки
-    int countTrainedSkill;                  // Количество тренированных навыков у класса
-    int countSkill;                         // Максимальное количество навыков у класса
-    AbilityType *keyAbility;                // Ключевые характеристики
-    int countKeyAbility;                    // Количество ключевых характеристик
-    ImplementType *implements;              // Инструменты, которыми персонаж может пользоваться
-    int countImplement;                     // Количество инструментов
-    FeatType *feats;                        // Классовые черты
-    int countFeat;                          // Количество черт
-    RoleType role;                          // Роль персонажа в группе
-    PowerSource power;                      // Источник силы
-    ClassType classType;                    // Класса персонажа
-    int hitPointAtFirstLevel;               // Хиты на первом уровне
-    int hitPointPerLevel;                   // Хиты за уровень
-    int healingSurgesPerDay;                // Количество исцелений в день
+    BonusDefense **defenseBonus;
+    int countDfnsBns;
+    SkillType *classSkill;
+    int countClassSkill;
+    SkillType *trainedSkill;
+    int countTrainedSkill;
+    int countSkill;
+    AbilityType *keyAbility;
+    int countKeyAbility;
+    ImplementType *implements;
+    int countImplement;
+    FeatType *feats;
+    int countFeat;
+    RoleType role;
+    PowerSource power;
+    ClassType classType;
+    int hitPointAtFirstLevel;
+    int hitPointPerLevel;
+    int healingSurgesPerDay;
 public:
     virtual ~ClassCharacter();
     ClassType getClass() const;

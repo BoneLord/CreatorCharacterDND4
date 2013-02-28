@@ -5,16 +5,16 @@
 #include "weapon.h"
 
 class Equipment {
-    Armor *armor;               // Доспех
-    Weapon *weapon;             // Оружие восновной руке
-//    Arms *arms;                 // Щиты и наручи
-//    Feet *feet;                 // Предметы на ноги (обувь, наголенники)
-//    Hands *hands;               // Предметы для кистей (перчатки, рукавицы)
-//    Head *head;                 // Предметы на голову
-//    Neck *neck;                 // Предметы на шею (амулеты, накидки)
-//    Ring *ring1;                // Кольцо для правой руки
-//    Ring *ring2;                // Кольцо для левой руки
-//    Waist *waist;               // Предметы на пояс
+    Armor *armor;
+    Weapon *weapon;
+//    Arms *arms;
+//    Feet *feet;
+//    Hands *hands;
+//    Head *head;
+//    Neck *neck;
+//    Ring *ring1;
+//    Ring *ring2;
+//    Waist *waist;
 public:
     Equipment();
     ~Equipment();

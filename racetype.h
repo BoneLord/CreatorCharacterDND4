@@ -2,14 +2,14 @@
 #define RACETYPE_H
 
 enum RaceType {
-    dragonBorn = 0,         // Драконорождённый
-    dwarf,                  // Дварф
-    eladrin,                // Эладрин
-    elf,                    // Эльф
-    halfElf,                // Полуэльф
-    halfling,               // Полурослик
-    human,                  // Человек
-    tiefling                // Тифлинг
+    dragonBorn = 0,
+    dwarf,
+    eladrin,
+    elf,
+    halfElf,
+    halfling,
+    human,
+    tiefling
 };
 
 #endif // RACETYPE_H

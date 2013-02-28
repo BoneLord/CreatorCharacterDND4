@@ -40,7 +40,6 @@ Character::Character(RaceType raceType, ClassType classType,
 //    for (int i = 0; i < countLanguage; ++i) {
 //        languages[i] = lan[i];
 //    }
-    // ≈щЄ здесь будет установка расовых/классовых черт и талантов
 }
 
 Character::~Character() {
@@ -362,10 +361,6 @@ int Character::getHealingSurgesValue() const {
 }
 
 int Character::getActionPoints() const {
-    /**
-      «начение зависит от количества пройденных сцен без продолжительного отдыха.
-      ѕосле продолжительного отдыха всегда равно 1.
-      */
     return 1;
 }
 
@@ -380,43 +375,6 @@ int Character::getPassiveInsight() const {
 int Character::getPassivePerception() const {
     return (10 + getPerception());
 }
-
-//int Character::getStandartMeleeAttackBonus() const {
-////    enhancement - улучшение
-//    Weapon const * const weapon = equipment.getWeapon();
-//    int bonusWeapon = 0;
-//    if (weapon != 0) {
-//        if (/*если персонаж владеет оружием*/) {
-//            bonusWeapon = weapon->getBonusProf();
-//        }
-//        if (/*дальнобойна€ или рукопашна€ атака*/) {
-//            bonusWeapon += getStrMod();
-//        }
-//        else {
-//            if (/*не магическа€ дальнобойна€ атака*/) {
-//                bonusWeapon += getDexMod();
-//            }
-//            else if (classCharacter->getClass() == wizard) {
-//                bonusWeapon += getIntMod();
-//            }
-//            else if (classCharacter->getClass() == warlock) {
-//                bonusWeapon += getChrMod();
-//                // или
-//                bonusWeapon += getConMod();
-//            }
-//        }
-//    }
-//        if (/*персонаж использует доспех, дл€ которого нет владени€*/) {
-//            Armor const * const = equipment.getArmor();
-//            bonusWeapon -= armor.;
-//        }
-//    }
-//    return (level/2/* + ability_mod + class_mod + proficient + feat + enhancement + misc*/);
-//}
-
-//int Character::getStandartMeleeDamageBonus() const {
-//    return (0/* + ability_mod + feat + enhancement + misc + misc*/);
-//}
 
 Vision Character::getVision() const {
     return race->getVision();
