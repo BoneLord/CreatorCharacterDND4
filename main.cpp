@@ -1,8 +1,8 @@
 #include <iostream>
-#include "character.h"
-#include "racetype.h"
-#include "classtype.h"
-#include "equipment.h"
+#include "character/character.h"
+#include "character/characteristics/race/racetype.h"
+#include "character/characteristics/class/classtype.h"
+#include "character/characteristics/equipment/equipment.h"
 
 /**
   Коды ошибок:
@@ -32,9 +32,9 @@ ErrorMessage::ErrorMessage() {
 ErrorMessage::~ErrorMessage() {
 }
 
-static char * ErrorMessage::textError(int errorID) {
-    return 0;
-}
+//static char * ErrorMessage::textError(int errorID) {
+//    return 0;
+//}
 
 char* genderToChar(Gender gender) {
     if (gender == male) {
