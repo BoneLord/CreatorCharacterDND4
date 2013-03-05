@@ -6,12 +6,11 @@
 #include "character/characteristics/class/classcharacter.h"
 #include "characteristics/alignment.h"
 #include "characteristics/gender.h"
-#include "characteristics/deity/deitytype.h"
 #include "character/characteristics/race/racetype.h"
 #include "character/characteristics/class/classtype.h"
 #include "character/characteristics/skill/skill.h"
 #include "character/characteristics/skill/tableskill.h"
-#include "character/characteristics/deity/deity.h"
+#include "character/characteristics/deity/ideity.h"
 #include "character/characteristics/equipment/implement/implementtype.h"
 #include "character/characteristics/equipment/equipment.h"
 #include "character/characteristics/feat/feat.h"
@@ -22,7 +21,7 @@ class Character {
     char *nameCommand;
     Gender gender;
     Alignment alignment;
-    DeityType deityType;
+    IDeity *mDeity;
     int weight;
     int height;
     int age;
@@ -39,7 +38,6 @@ class Character {
     TableSkill skills;
     int countMaxSkill;
     bool flagSetAlignment;
-    bool flagSetDeity;
     Language *languages;
     int countLanguage;
     Equipment equipment;
@@ -61,7 +59,7 @@ public:
     const char* getNameCommand() const;
     Gender getGender() const;
     Alignment getAlignment() const;
-    DeityType getDeityType() const;
+    const IDeity& getDeity() const;
     int getWeight() const;
     int getHeight() const;
     int getAge() const;
@@ -150,7 +148,7 @@ public:
 //    int setSkillTrained(SkillType skillType/*, Feat feat*/);
 
     // Choose deity and alignment
-    int setDeityType(DeityType _deityType);
+    int setDeity(IDeity *deityType);
     int setAlignment(Alignment _alignment);
 
     // Choose new language

@@ -3,6 +3,26 @@
 #include "character/characteristics/race/racetype.h"
 #include "character/characteristics/class/classtype.h"
 #include "character/characteristics/equipment/equipment.h"
+#include "character/characteristics/deity/typeDeity/bahamut/bahamut.h"
+#include "character/characteristics/deity/typeDeity/asmodeus/asmodeus.h"
+#include "character/characteristics/deity/typeDeity/avandra/avandra.h"
+#include "character/characteristics/deity/typeDeity/bane/bane.h"
+#include "character/characteristics/deity/typeDeity/corellon/corellon.h"
+#include "character/characteristics/deity/typeDeity/erathis/erathis.h"
+#include "character/characteristics/deity/typeDeity/gruumsh/gruumsh.h"
+#include "character/characteristics/deity/typeDeity/ioun/ioun.h"
+#include "character/characteristics/deity/typeDeity/kord/kord.h"
+#include "character/characteristics/deity/typeDeity/lolth/lolth.h"
+#include "character/characteristics/deity/typeDeity/melora/melora.h"
+#include "character/characteristics/deity/typeDeity/moradin/moradin.h"
+#include "character/characteristics/deity/typeDeity/pelor/pelor.h"
+#include "character/characteristics/deity/typeDeity/sehanine/sehanine.h"
+#include "character/characteristics/deity/typeDeity/theravenqueen/theravenqueen.h"
+#include "character/characteristics/deity/typeDeity/tiamat/tiamat.h"
+#include "character/characteristics/deity/typeDeity/torog/torog.h"
+#include "character/characteristics/deity/typeDeity/vecna/vecna.h"
+#include "character/characteristics/deity/typeDeity/zehir/zehir.h"
+
 
 /**
   Коды ошибок:
@@ -49,8 +69,8 @@ char* alignmentToChar(Alignment alignment) {
     switch (alignment) {
     case good:
         return "good";
-    case lawful:
-        return "lawful";
+    case lawfulGood:
+        return "lawful good";
     case evil:
         return "evil";
     case chaoticEvil:
@@ -143,51 +163,51 @@ char* defenseTypeToChar(DefenseType defense) {
     return 0;
 }
 
-char* deityTypeToChar(DeityType deity) {
-    switch (deity) {
-    case undefined:
-        return "";
-    case Avandra:
-        return "Avandra";
-    case Bahamut:
-        return "Bahamut";
-    case Corellon:
-        return "Corellon";
-    case Erathis:
-        return "Erathis";
-    case Ioun:
-        return "Ioun";
-    case Kord:
-        return "Kord";
-    case Melora:
-        return "Melora";
-    case Moradin:
-        return "Moradin";
-    case Pelor:
-        return "Pelor";
-    case TheRavenQueen:
-        return "The Raven Queen";
-    case Sehanine:
-        return "Sehanine";
-    case Asmodeus:
-        return "Asmodeus";
-    case Bane:
-        return "Bane";
-    case Gruumsh:
-        return "Gruumsh";
-    case Lolth:
-        return "Lolth";
-    case Tiamat:
-        return "Tiamat";
-    case Torog:
-        return "Torog";
-    case Vecna:
-        return "Vecna";
-    case Zehir:
-        return "Zehir";
-    }
-    return 0;
-}
+//char* deityTypeToChar(DeityType deity) {
+//    switch (deity) {
+//    case undefined:
+//        return "";
+//    case Avandra:
+//        return "Avandra";
+//    case Bahamut:
+//        return "Bahamut";
+//    case Corellon:
+//        return "Corellon";
+//    case Erathis:
+//        return "Erathis";
+//    case Ioun:
+//        return "Ioun";
+//    case Kord:
+//        return "Kord";
+//    case Melora:
+//        return "Melora";
+//    case Moradin:
+//        return "Moradin";
+//    case Pelor:
+//        return "Pelor";
+//    case TheRavenQueen:
+//        return "The Raven Queen";
+//    case Sehanine:
+//        return "Sehanine";
+//    case Asmodeus:
+//        return "Asmodeus";
+//    case Bane:
+//        return "Bane";
+//    case Gruumsh:
+//        return "Gruumsh";
+//    case Lolth:
+//        return "Lolth";
+//    case Tiamat:
+//        return "Tiamat";
+//    case Torog:
+//        return "Torog";
+//    case Vecna:
+//        return "Vecna";
+//    case Zehir:
+//        return "Zehir";
+//    }
+//    return 0;
+//}
 
 char* languageToChar(Language language) {
     switch (language) {
@@ -253,11 +273,13 @@ char* visionToChar(Vision vision) {
 
 int main() {
     Character character(dwarf, cleric, "Vondal", "Oleg", "", 21, male, 190, 100);
-    if (character.setAlignment(good) < 0) {
-        std::cout << "Error1!" << std::endl;
+    if (character.setAlignment(evil) < 0) {
+        std::cout << "Selected aligment is not compatible with the chosen deity." << std::endl;
+        return 0;
     }
-    if (character.setDeityType(Avandra) < 0) {
-        std::cout << "Error2!" << std::endl;
+    if (character.setDeity(&(Zehir::getInstance())) < 0) {
+        std::cout << "Selected deity is not compatible with the chosen aligment." << std::endl;
+        return 0;
     }
     if (character.setSkillTrained(insight) < 0) {
         std::cout << "Error3!" << std::endl;
@@ -292,7 +314,7 @@ int main() {
     std::cout << "Size: " << sizeToChar(character.getSize()) << std::endl;
     std::cout << "Vision: " << visionToChar(character.getVision()) << std::endl;
     std::cout << "Alignment: " << alignmentToChar(character.getAlignment()) << std::endl;
-    std::cout << "DeityType: " << deityTypeToChar(character.getDeityType()) << std::endl;
+    std::cout << "Deity: " << character.getDeity().toString() << std::endl;
     std::cout << "Initiative: " << character.getInitiative() << std::endl;
     std::cout << "Strength: " << character.getStrScore() << std::endl;
     std::cout << "Strength mod: " << character.getStrMod() << std::endl;

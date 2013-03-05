@@ -32,7 +32,7 @@ Character::Character(RaceType raceType, ClassType classType,
     }
     countMaxSkill = classCharacter->getCountSkill();
     flagSetAlignment = false;
-    flagSetDeity = false;
+    mDeity = 0;
     countLanguage = race->countLanguages();
     languages = new Language [countLanguage];
     memcpy(languages, race->getLanguages(),(sizeof(Language) * countLanguage));
@@ -49,6 +49,7 @@ Character::~Character() {
     delete race;
     delete classCharacter;
     delete languages;
+    //delete mDeity;
 }
 
 const char *Character::getNameCharacter() const {
@@ -71,8 +72,8 @@ Alignment Character::getAlignment() const {
     return alignment;
 }
 
-DeityType Character::getDeityType() const {
-    return deityType;
+const IDeity& Character::getDeity() const {
+    return *mDeity;
 }
 
 int Character::getWeight() const {
@@ -450,171 +451,33 @@ int Character::getRestCountSkillTrain() const {
     return (skills.getCountTrainedSkill() - classCharacter->getCountTrainedSkill()/* - featTrainedSkill*/);
 }
 
-int Character::setDeityType(DeityType _deityType) {
+int Character::setDeity(IDeity *deity) {
     if (!flagSetAlignment) {
-        deityType = _deityType;
-        flagSetDeity = true;
+        delete mDeity;
+        mDeity = deity;
         return 0;
     }
-    Deity deity(_deityType);
-    Alignment deityAlignment = deity.getDeityAlignment();
-    switch (alignment) {
-    case good:
-        if (deityAlignment == good || deityAlignment == unaligned) {
-            deityType = _deityType;
-            return 0;
-        }
-        break;
-    case lawful:
-        if (deityAlignment == lawful) {
-            deityType = _deityType;
-            return 0;
-        }
-        break;
-    case evil:
-        if (deityAlignment == evil || deityAlignment == unaligned) {
-            deityType = _deityType;
-            return 0;
-        }
-        break;
-    case chaoticEvil:
-        if (deityAlignment == chaoticEvil) {
-            deityType = _deityType;
-            return 0;
-        }
-        break;
-    case unaligned:
-        deityType = _deityType;
+    else if (deity->isCompatibleAlignment(alignment)) {
+        delete mDeity;
+        mDeity = deity;
+        return 0;
     }
     return -5;
 }
 
 int Character::setAlignment(Alignment _alignment) {
-    if (!flagSetDeity) {
+    if (mDeity == 0) {
         alignment = _alignment;
         flagSetAlignment = true;
-        return 0;
-    }
-    switch (deityType) {
-    case undefined:
+    } else if (mDeity->isCompatibleAlignment(_alignment)) {
         alignment = _alignment;
-        return 0;
-    case Avandra:
-        if (alignment == good || alignment == unaligned) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Bahamut:
-        if (alignment == lawful) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Corellon:
-        if (alignment == unaligned || alignment == good || alignment == evil) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Erathis:
-        if (alignment == unaligned || alignment == good || alignment == evil) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Ioun:
-        if (alignment == unaligned || alignment == good || alignment == evil) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Kord:
-        if (alignment == unaligned || alignment == good || alignment == evil) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Melora:
-        if (alignment == unaligned || alignment == good || alignment == evil) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Moradin:
-        if (alignment == lawful) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Pelor:
-        if (alignment == good || alignment == unaligned) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case TheRavenQueen:
-        if (alignment == unaligned || alignment == good || alignment == evil) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Sehanine:
-        if (alignment == unaligned || alignment == good || alignment == evil) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Asmodeus:
-        if (alignment == evil || alignment == unaligned) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Bane:
-        if (alignment == evil || alignment == unaligned) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Gruumsh:
-        if (alignment == chaoticEvil) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Lolth:
-        if (alignment == chaoticEvil) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Tiamat:
-        if (alignment == evil || alignment == unaligned) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Torog:
-        if (alignment == evil || alignment == unaligned) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Vecna:
-        if (alignment == evil || alignment == unaligned) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
-    case Zehir:
-        if (alignment == evil || alignment == unaligned) {
-            alignment = _alignment;
-            return 0;
-        }
-        break;
+        flagSetAlignment = true;
     }
-    return -6;
+    else {
+        flagSetAlignment = false;
+        return -6;
+    }
+    return 0;
 }
 
 int Character::setLanguage(Language language) {

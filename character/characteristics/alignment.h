@@ -3,7 +3,7 @@
 
 enum Alignment {
     good,
-    lawful,
+    lawfulGood,
     evil,
     chaoticEvil,
     unaligned
