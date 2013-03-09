@@ -1,6 +1,6 @@
 #include "character/characteristics/race/typeRace/tiefling.h"
 
-Tiefling::Tiefling() : Race() {
+Tiefling::Tiefling(Language language) : Race() {
     avgMinHeight = 165;
     avgMaxHeight = 185;
     avgMinWeight = 63;
@@ -9,28 +9,15 @@ Tiefling::Tiefling() : Race() {
     size = medium;
     speed = 5;
     vision = lowLight;
-    raceType = dwarf;
+    raceType = tiefling;
 
-    countLanguage = 2;
-    languages = new Language [countLanguage];
-    languages[0] = common;
-    languages[1] = choiceOfOneOther;
+    languages.push_back(common);
+    languages.push_back(language);
 
-    countAbltScBns = 2;
-    abilityScoreBonus = new BonusAbility * [countAbltScBns];
-    abilityScoreBonus[0] = new BonusAbility(intellect_t, 2);
-    abilityScoreBonus[1] = new BonusAbility(charisma_t, 2);
-
-    countSkllBns = 2;
-    skillBonus = new BonusSkill * [countSkllBns];
-    skillBonus[0] = new BonusSkill(bluff, 2);
-    skillBonus[1] = new BonusSkill(stealth, 2);
-
-    countDfnsBns = 0;
-    defenseBonus = 0;
-
-    countFeat = 0;
-    feats = 0;
+    bonus.setBonus(intellect_t, 2);
+    bonus.setBonus(charisma_t, 2);
+    bonus.setBonus(bluff, 2);
+    bonus.setBonus(stealth, 2);
 }
 
 Tiefling::~Tiefling() {

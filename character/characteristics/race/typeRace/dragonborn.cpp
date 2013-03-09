@@ -11,26 +11,13 @@ Dragonborn::Dragonborn() : Race() {
     vision = normal;
     raceType = dragonBorn;
 
-    countLanguage = 2;
-    languages = new Language [countLanguage];
-    languages[0] = common;
-    languages[1] = draconic;
+    languages.push_back(common);
+    languages.push_back(draconic);
 
-    countAbltScBns = 2;
-    abilityScoreBonus = new BonusAbility * [countAbltScBns];
-    abilityScoreBonus[0] = new BonusAbility(strength_t, 2);
-    abilityScoreBonus[1] = new BonusAbility(charisma_t, 2);
-
-    countSkllBns = 2;
-    skillBonus = new BonusSkill * [countSkllBns];
-    skillBonus[0] = new BonusSkill(history, 2);
-    skillBonus[1] = new BonusSkill(intimidate, 2);
-
-    countDfnsBns = 0;
-    defenseBonus = 0;
-
-    countFeat = 0;
-    feats = 0;
+    bonus.setBonus(strength_t, 2);
+    bonus.setBonus(charisma_t, 2);
+    bonus.setBonus(history, 2);
+    bonus.setBonus(intimidate, 2);
 }
 
 Dragonborn::~Dragonborn() {

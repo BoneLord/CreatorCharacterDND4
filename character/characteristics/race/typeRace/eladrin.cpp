@@ -11,27 +11,14 @@ Eladrin::Eladrin() : Race() {
     vision = lowLight;
     raceType = eladrin;
 
-    countLanguage = 2;
-    languages = new Language [countLanguage];
-    languages[0] = common;
-    languages[1] = elven;
+    languages.push_back(common);
+    languages.push_back(elven);
 
-    countAbltScBns = 2;
-    abilityScoreBonus = new BonusAbility * [countAbltScBns];
-    abilityScoreBonus[0] = new BonusAbility(dexterity_t, 2);
-    abilityScoreBonus[1] = new BonusAbility(intellect_t, 2);
-
-    countSkllBns = 2;
-    skillBonus = new BonusSkill * [countSkllBns];
-    skillBonus[0] = new BonusSkill(arcana, 2);
-    skillBonus[1] = new BonusSkill(history, 2);
-
-    countDfnsBns = 1;
-    defenseBonus = new BonusDefense * [countDfnsBns];
-    defenseBonus[0] = new BonusDefense(will, 1);
-
-    countFeat = 0;
-    feats = 0;
+    bonus.setBonus(dexterity_t, 2);
+    bonus.setBonus(intellect_t, 2);
+    bonus.setBonus(arcana, 2);
+    bonus.setBonus(history, 2);
+    bonus.setBonus(will, 1);
 }
 
 Eladrin::~Eladrin() {

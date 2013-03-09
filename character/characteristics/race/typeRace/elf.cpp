@@ -9,28 +9,15 @@ Elf::Elf() : Race() {
     size = medium;
     speed = 7;
     vision = lowLight;
-    raceType = dwarf;
+    raceType = elf;
 
-    countLanguage = 2;
-    languages = new Language [countLanguage];
-    languages[0] = common;
-    languages[1] = elven;
+    languages.push_back(common);
+    languages.push_back(elven);
 
-    countAbltScBns = 2;
-    abilityScoreBonus = new BonusAbility * [countAbltScBns];
-    abilityScoreBonus[0] = new BonusAbility(dexterity_t, 2);
-    abilityScoreBonus[1] = new BonusAbility(wisdom_t, 2);
-
-    countSkllBns = 2;
-    skillBonus = new BonusSkill * [countSkllBns];
-    skillBonus[0] = new BonusSkill(nature, 2);
-    skillBonus[1] = new BonusSkill(perception, 2);
-
-    countDfnsBns = 0;
-    defenseBonus = 0;
-
-    countFeat = 0;
-    feats = 0;
+    bonus.setBonus(dexterity_t, 2);
+    bonus.setBonus(wisdom_t, 2);
+    bonus.setBonus(nature, 2);
+    bonus.setBonus(perception, 2);
 }
 
 Elf::~Elf() {

@@ -1,6 +1,6 @@
 #include "character/characteristics/race/typeRace/human.h"
 
-Human::Human() : Race() {
+Human::Human(Language language, AbilityType ability) : Race() {
     avgMinHeight = 165;
     avgMaxHeight = 185;
     avgMinWeight = 72;
@@ -11,28 +11,13 @@ Human::Human() : Race() {
     vision = normal;
     raceType = human;
 
-    countLanguage = 2;
-    languages = new Language [countLanguage];
-    languages[0] = common;
-    languages[1] = choiceOfOneOther;
+    languages.push_back(common);
+    languages.push_back(language);
 
-//    countAbltScBns = 1;
-//    abilityScoreBonus = new BonusAbility * [countAbltScBns];
-//    abilityScoreBonus[0] = new BonusAbility(, 2);
-    countAbltScBns = 0;
-    abilityScoreBonus = 0;
-
-    countSkllBns = 0;
-    skillBonus = 0;
-
-    countDfnsBns = 3;
-    defenseBonus = new BonusDefense * [countDfnsBns];
-    defenseBonus[0] = new BonusDefense(fortitude, 1);
-    defenseBonus[1] = new BonusDefense(reflex, 1);
-    defenseBonus[2] = new BonusDefense(will, 1);
-
-    countFeat = 0;
-    feats = 0;
+    bonus.setBonus(ability, 2);
+    bonus.setBonus(fortitude, 1);
+    bonus.setBonus(reflex, 1);
+    bonus.setBonus(will, 1);
 }
 
 Human::~Human() {

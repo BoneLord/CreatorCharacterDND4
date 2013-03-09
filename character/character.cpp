@@ -474,7 +474,6 @@ int Character::setAlignment(Alignment _alignment) {
         flagSetAlignment = true;
     }
     else {
-        flagSetAlignment = false;
         return -6;
     }
     return 0;
@@ -486,7 +485,7 @@ int Character::setLanguage(Language language) {
         if (lang == language) {
             return -8;
         }
-        if (lang == choiceOfOneOther) {
+        if (lang == ) {
             languages[i] = language;
             return 0;
         }

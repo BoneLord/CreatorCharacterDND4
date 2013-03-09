@@ -11,9 +11,8 @@
 #include "character/characteristics/skill/skill.h"
 #include "character/characteristics/skill/tableskill.h"
 #include "character/characteristics/deity/ideity.h"
-#include "character/characteristics/equipment/implement/implementtype.h"
+
 #include "character/characteristics/equipment/equipment.h"
-#include "character/characteristics/feat/feat.h"
 
 class Character {
     char *nameCharacter;

@@ -1,12 +1,53 @@
 #include "character/characteristics/bonus/bonus.h"
 
-Bonus::Bonus(int val) :
-    value(val) {
+Bonus::Bonus() {
 }
 
 Bonus::~Bonus() {
 }
 
-int Bonus::getValBonus() const {
-    return value;
+Bonus::Bonus(const Bonus &b) {
+}
+
+const Bonus& Bonus::operator=(const Bonus &b) {
+    return *this;
+}
+
+const std::map<DefenseType, int> * Bonus::getBonusToDefense() const {
+    return &mDefenseBonus;
+}
+
+const std::map<AbilityType, int> * Bonus::getBonusToAbility() const {
+    return &mAbilityBonus;
+}
+
+const std::map<SkillType, int> * Bonus::getBonusToSkill() const {
+    return &mSkillBonus;
+}
+
+void Bonus::setBonus(DefenseType defense, int value) {
+    std::map<DefenseType, int>::iterator it = mDefenseBonus.find(defense);
+    if (it == mDefenseBonus.end()) {
+        mDefenseBonus.insert(std::make_pair(defense, value));
+        return;
+    }
+    it->second = value;
+}
+
+void Bonus::setBonus(AbilityType ability, int value) {
+    std::map<AbilityType, int>::iterator it = mAbilityBonus.find(ability);
+    if (it == mAbilityBonus.end()) {
+        mAbilityBonus.insert(std::make_pair(ability, value));
+        return;
+    }
+    it->second = value;
+}
+
+void Bonus::setBonus(SkillType skill, int value) {
+    std::map<SkillType, int>::iterator it = mSkillBonus.find(skill);
+    if (it == mSkillBonus.end()) {
+        mSkillBonus.insert(std::make_pair(skill, value));
+        return;
+    }
+    it->second = value;
 }

@@ -2,51 +2,22 @@
 #include "character/characteristics/class/typeClass/cleric.h"
 
 ClassCharacter::~ClassCharacter() {
-    for (int i = 0; i < countDfnsBns; ++i) {
-        delete defenseBonus[i];
-    }
-    delete [] defenseBonus;
-    delete [] classSkill;
-    delete [] trainedSkill;
-    delete [] keyAbility;
-    delete [] implements;
-    delete [] feats;
 }
 
 ClassType ClassCharacter::getClass() const {
-    return cleric;
+    return classType;
 }
 
 RoleType ClassCharacter::getRoleType() const {
-    return leaders;
+    return role;
 }
 
 PowerSource ClassCharacter::getPowerSource() const {
-    return divine;
+    return power;
 }
 
-BonusDefense const * const * ClassCharacter::getDefenseBonus() const {
-    return defenseBonus;
-}
-
-int ClassCharacter::countDefenseBonus() const {
-    return countDfnsBns;
-}
-
-SkillType const * ClassCharacter::getClassSkill() const {
+const std::map<SkillType, bool>& ClassCharacter::getClassSkill() const {
     return classSkill;
-}
-
-int ClassCharacter::getCountClassSkill() const {
-    return countClassSkill;
-}
-
-SkillType const * ClassCharacter::getTrainedSkill() const {
-    return trainedSkill;
-}
-
-int ClassCharacter::getCountTrainedSkill() const {
-    return countTrainedSkill;
 }
 
 int ClassCharacter::getHitPointAtFirstLevel() const {
@@ -61,42 +32,12 @@ int ClassCharacter::getHealingSurgesPerDay() const {
     return healingSurgesPerDay;
 }
 
-int ClassCharacter::getDefenseValue(DefenseType dfnsType) const {
-    for (int i = 0; i < countDfnsBns; ++i) {
-        if (defenseBonus[i]->getBonusDefense() == dfnsType) {
-            return defenseBonus[i]->getValBonus();
-        }
-    }
-    return 0;
+int ClassCharacter::getCountTrainedSkills() const {
+    return countTrainedSkills;
 }
 
-int ClassCharacter::getCountSkill() const {
-    return (countSkill - countTrainedSkill);
-}
-
-AbilityType const * ClassCharacter::getKeyAbility() const {
+const std::vector& ClassCharacter::getKeyAbility() const {
     return keyAbility;
-}
-
-int ClassCharacter::getCountKeyAbility() const {
-    return countKeyAbility;
-}
-
-ImplementType const * ClassCharacter::getImplements() const {
-    return implements;
-}
-
-int ClassCharacter::getCountImplement() const {
-    return countImplement;
-}
-
-
-int ClassCharacter::getCountFeat() const {
-    return countFeat;
-}
-
-FeatType const * const  ClassCharacter::getFeats() const {
-    return feats;
 }
 
 ClassCharacter *ClassCharacter::createClass(ClassType classType) {

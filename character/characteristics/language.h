@@ -2,8 +2,7 @@
 #define LANGUAGE_H
 
 enum Language {
-    choiceOfOneOther = 0,
-    common,
+    common = 0,
     deepSpeech,
     draconic,
     dwarven,
