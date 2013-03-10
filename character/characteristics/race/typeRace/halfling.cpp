@@ -9,7 +9,6 @@ Halfling::Halfling(Language language) : Race() {
     size = small;
     speed = 6;
     vision = normal;
-    raceType = halfling;
 
     languages.push_back(common);
     languages.push_back(language);
@@ -21,4 +20,11 @@ Halfling::Halfling(Language language) : Race() {
 }
 
 Halfling::~Halfling() {
+}
+
+const char * Halfling::toString() const {
+    char name[] = "Halfling";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
 }

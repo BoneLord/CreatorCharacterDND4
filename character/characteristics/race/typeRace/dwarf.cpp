@@ -9,7 +9,6 @@ Dwarf::Dwarf() : Race() {
     size = medium;
     speed = 5;
     vision = lowLight;
-    raceType = dwarf;
 
     languages.push_back(common);
     languages.push_back(dwarven);
@@ -21,4 +20,11 @@ Dwarf::Dwarf() : Race() {
 }
 
 Dwarf::~Dwarf() {
+}
+
+const char * Dwarf::toString() const {
+    char name[] = "Dwarf";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
 }

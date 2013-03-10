@@ -9,7 +9,6 @@ HalfElf::HalfElf(Language language) : Race() {
     size = medium;
     speed = 6;
     vision = lowLight;
-    raceType = halfElf;
 
     languages.push_back(common);
     languages.push_back(elven);
@@ -22,4 +21,11 @@ HalfElf::HalfElf(Language language) : Race() {
 }
 
 HalfElf::~HalfElf() {
+}
+
+const char * HalfElf::toString() const {
+    char name[] = "Half-elf";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
 }

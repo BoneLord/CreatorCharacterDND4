@@ -11,7 +11,6 @@
 #include "character/characteristics/skill/skill.h"
 #include "character/characteristics/skill/tableskill.h"
 #include "character/characteristics/deity/ideity.h"
-
 #include "character/characteristics/equipment/equipment.h"
 
 class Character {

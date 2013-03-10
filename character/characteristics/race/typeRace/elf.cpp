@@ -9,7 +9,6 @@ Elf::Elf() : Race() {
     size = medium;
     speed = 7;
     vision = lowLight;
-    raceType = elf;
 
     languages.push_back(common);
     languages.push_back(elven);
@@ -21,4 +20,11 @@ Elf::Elf() : Race() {
 }
 
 Elf::~Elf() {
+}
+
+const char * Elf::toString() const {
+    char name[] = "Elf";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
 }

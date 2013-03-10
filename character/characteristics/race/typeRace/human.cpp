@@ -9,7 +9,6 @@ Human::Human(Language language, AbilityType ability) : Race() {
     size = medium;
     speed = 6;
     vision = normal;
-    raceType = human;
 
     languages.push_back(common);
     languages.push_back(language);
@@ -21,4 +20,11 @@ Human::Human(Language language, AbilityType ability) : Race() {
 }
 
 Human::~Human() {
+}
+
+const char * Human::toString() const {
+    char name[] = "Human";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
 }

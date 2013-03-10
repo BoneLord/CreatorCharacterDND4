@@ -9,7 +9,6 @@ Eladrin::Eladrin() : Race() {
     size = medium;
     speed = 6;
     vision = lowLight;
-    raceType = eladrin;
 
     languages.push_back(common);
     languages.push_back(elven);
@@ -22,4 +21,11 @@ Eladrin::Eladrin() : Race() {
 }
 
 Eladrin::~Eladrin() {
+}
+
+const char * Eladrin::toString() const {
+    char name[] = "Eladrin";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
 }

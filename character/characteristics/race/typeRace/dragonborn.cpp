@@ -9,7 +9,6 @@ Dragonborn::Dragonborn() : Race() {
     size = medium;
     speed = 6;
     vision = normal;
-    raceType = dragonBorn;
 
     languages.push_back(common);
     languages.push_back(draconic);
@@ -21,4 +20,11 @@ Dragonborn::Dragonborn() : Race() {
 }
 
 Dragonborn::~Dragonborn() {
+}
+
+const char * Dragonborn::toString() const {
+    char name[] = "Dragonborn";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
 }

@@ -9,7 +9,6 @@ Tiefling::Tiefling(Language language) : Race() {
     size = medium;
     speed = 5;
     vision = lowLight;
-    raceType = tiefling;
 
     languages.push_back(common);
     languages.push_back(language);
@@ -21,4 +20,11 @@ Tiefling::Tiefling(Language language) : Race() {
 }
 
 Tiefling::~Tiefling() {
+}
+
+const char * Tiefling::toString() const {
+    char name[] = "Tiefling";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
 }
