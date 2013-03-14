@@ -401,7 +401,7 @@ int Character::getAverageAge() const {
     return race->getAverageAge();
 }
 
-Language const * Character::getLanguage() const {
+const std::vector &Character::getLanguage() const {
     return languages;
 }
 

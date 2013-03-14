@@ -39,7 +39,6 @@ class Character {
     Language *languages;
     int countLanguage;
     Equipment equipment;
-    Feat feats;
     int getPositiveMod(int value) const;
     int getArmorSpeedPenalty() const;
     int getArmorSkillPenalty() const;
@@ -63,8 +62,8 @@ public:
     int getAge() const;
     int getLevel() const;
     int getTotalExpereance() const;
-    RaceType getRace() const;
-    ClassType getClass() const;
+    const char * const getRace() const;                                 // Race::toString() Race name
+    const char * const getClass() const;                                // ClassCharacter::toString() Class name
     Size getSize() const;
 //    void addExpereance(int value);
 
@@ -83,19 +82,9 @@ public:
 //    int getStandartRangeAttackBonus() const;
 //    int getStandartRangeDamageBonus() const;
     Vision getVision() const;
-    int getAverageMinHeight() const;
-    int getAverageMaxHeight() const;
-    int getAverageMinWeight() const;
-    int getAverageMaxWeight() const;
-    int getAverageAge() const;
-    Language const * getLanguage() const;
-    int getCountLanguage() const;
-    RoleType getRole() const;
-    PowerSource getPowerSource() const;
-    AbilityType const * getKeyAbility() const;
-    int getCountKeyAbility() const;
-    ImplementType const * getImplements() const;
-    int getCountImplement() const;
+    const std::vector<Language>& getLanguage() const;
+//    ImplementType const * getImplements() const;
+//    int getCountImplement() const;
 
     // Ability score
     int getStrScore() const;
