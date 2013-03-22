@@ -6,50 +6,48 @@
 #include "character/characteristics/class/classcharacter.h"
 #include "characteristics/alignment.h"
 #include "characteristics/gender.h"
-#include "character/characteristics/race/racetype.h"
-#include "character/characteristics/class/classtype.h"
 #include "character/characteristics/skill/skill.h"
 #include "character/characteristics/skill/tableskill.h"
 #include "character/characteristics/deity/ideity.h"
 #include "character/characteristics/equipment/equipment.h"
 
 class Character {
-    char *nameCharacter;
-    char *namePlayer;
-    char *nameCommand;
-    Gender gender;
-    Alignment alignment;
+    char *mNameCharacter;
+    char *mNamePlayer;
+    char *mNameCommand;
+    Gender mGender;
+    Alignment mAlignment;
     IDeity *mDeity;
-    int weight;
-    int height;
-    int age;
-    int level;
-    int expereance;
-    int strength;
-    int constitution;
-    int dexterity;
-    int intellect;
-    int wisdom;
-    int charisma;
-    Race *race;
-    ClassCharacter *classCharacter;
-    TableSkill skills;
-    int countMaxSkill;
-    bool flagSetAlignment;
-    Language *languages;
-    int countLanguage;
-    Equipment equipment;
+    int mWeight;
+    int mHeight;
+    int mAge;
+    int mLevel;
+    int mExpereance;
+    int mStrength;
+    int mConstitution;
+    int mDexterity;
+    int mIntellect;
+    int mWisdom;
+    int mCharisma;
+    Race *mRace;
+    ClassCharacter *mClassCharacter;
+    TableSkill mSkills;
+    int mCountMaxSkill;
+    bool mFlagSetAlignment;
+    Language *mLanguages;
+    int mCountLanguage;
+    Equipment mEquipment;
     int getPositiveMod(int value) const;
     int getArmorSpeedPenalty() const;
     int getArmorSkillPenalty() const;
 public:
-    Character(RaceType raceType, ClassType classType,
-              char nameChr[], char namePlr[], char nameCmnd[],
-              int _age, Gender _gender, int _height, int _weight,
-              int _strength = 8, int _constitution = 8,
-              int _dexterity = 8, int _intellect = 8,
-              int _wisdom = 8, int _charisma = 8,
-              int _level = 1);
+    Character(Race *race, ClassCharacter *classCharacter,
+              char nameCharacter[], char namePlayer[], char nameCommand[],
+              int age, Gender gender, int height, int weight,
+              int strength = 8, int constitution = 8,
+              int dexterity = 8, int intellect = 8,
+              int wisdom = 8, int charisma = 8,
+              int level = 1);
     ~Character();
     const char* getNameCharacter() const;
     const char* getNamePlayer() const;
@@ -136,7 +134,7 @@ public:
 
     // Choose deity and alignment
     int setDeity(IDeity *deityType);
-    int setAlignment(Alignment _alignment);
+    int setAlignment(Alignment alignment);
 
     // Choose new language
     int setLanguage(Language language);

@@ -1,75 +1,75 @@
 #include "character/character.h"
 
-Character::Character(RaceType raceType, ClassType classType,
-                     char nameChr[], char namePlr[], char nameCmnd[],
-                     int _age, Gender _gender, int _height,
-                     int _weight, int _strength, int _constitution,
-                     int _dexterity, int _intellect, int _wisdom,
-                     int _charisma, int _level) :
-    race(Race::createRace(raceType)),
-    classCharacter(ClassCharacter::createClass(classType)),
-    age(_age),
-    gender(_gender),
-    height(_height),
-    weight(_weight),
-    strength(_strength),
-    constitution(_constitution),
-    dexterity(_dexterity),
-    intellect(_intellect),
-    wisdom(_wisdom),
-    charisma(_charisma),
-    level(_level) {
-    namePlayer = new char [strlen(namePlr)+1];
-    nameCharacter = new char [strlen(nameChr)+1];
-    nameCommand = new char [strlen(nameCmnd)+1];
-    strcpy(namePlayer, namePlr);
-    strcpy(nameCharacter, nameChr);
-    strcpy(nameCommand, nameCmnd);
-    SkillType const * trainedSkill = classCharacter->getTrainedSkill();
-    int countTrainedSkill = classCharacter->getCountTrainedSkill();
+Character::Character(Race *race, ClassCharacter *classCharacter,
+                     char nameCharacter[], char namePlayer[], char nameCommand[],
+                     int age, Gender gender, int height,
+                     int weight, int strength, int constitution,
+                     int dexterity, int intellect, int wisdom,
+                     int charisma, int level) :
+    mRace(race),
+    mClassCharacter(classCharacter),
+    mAge(age),
+    mGender(gender),
+    mHeight(height),
+    mWeight(weight),
+    mStrength(strength),
+    mConstitution(constitution),
+    mDexterity(dexterity),
+    mIntellect(intellect),
+    mWisdom(wisdom),
+    mCharisma(charisma),
+    mLevel(level) {
+    mNamePlayer = new char [strlen(namePlayer)+1];
+    mNameCharacter = new char [strlen(nameCharacter)+1];
+    mNameCommand = new char [strlen(nameCommand)+1];
+    strcpy(mNamePlayer, namePlayer);
+    strcpy(mNameCharacter, nameCharacter);
+    strcpy(mNameCommand, nameCommand);
+    SkillType const * trainedSkill = mClassCharacter->getTrainedSkill();
+    int countTrainedSkill = mClassCharacter->getCountTrainedSkill();
     for (int i = 0; i < countTrainedSkill; ++i) {
-        skills.setTrainSkill(trainedSkill[i]);
+        mSkills.setTrainSkill(trainedSkill[i]);
     }
-    countMaxSkill = classCharacter->getCountSkill();
-    flagSetAlignment = false;
+    mCountMaxSkill = mClassCharacter->getCountSkill();
+    mFlagSetAlignment = false;
     mDeity = 0;
-    countLanguage = race->countLanguages();
-    languages = new Language [countLanguage];
-    memcpy(languages, race->getLanguages(),(sizeof(Language) * countLanguage));
-//    Language const * lan = race->getLanguages();
-//    for (int i = 0; i < countLanguage; ++i) {
-//        languages[i] = lan[i];
+    mCountLanguage = mRace->countLanguages();
+    mLanguages = new Language [mCountLanguage];
+    memcpy(mLanguages, mRace->getLanguages(),(sizeof(Language) * mCountLanguage));
+//    Language const * lan = mRace->getLanguages();
+//    for (int i = 0; i < mCountLanguage; ++i) {
+//        mLanguages[i] = lan[i];
 //    }
 }
 
 Character::~Character() {
-    delete [] nameCharacter;
-    delete [] namePlayer;
-    delete [] nameCommand;
-    delete race;
-    delete classCharacter;
-    delete languages;
-    //delete mDeity;
+    delete [] mNameCharacter;
+    delete [] mNamePlayer;
+    delete [] mNameCommand;
+    delete mRace;
+    delete mClassCharacter;
+    delete mLanguages;
+    delete mDeity;
 }
 
 const char *Character::getNameCharacter() const {
-    return nameCharacter;
+    return mNameCharacter;
 }
 
 const char *Character::getNamePlayer() const {
-    return namePlayer;
+    return mNamePlayer;
 }
 
 const char *Character::getNameCommand() const {
-    return nameCommand;
+    return mNameCommand;
 }
 
 Gender Character::getGender() const {
-    return gender;
+    return mGender;
 }
 
 Alignment Character::getAlignment() const {
-    return alignment;
+    return mAlignment;
 }
 
 const IDeity& Character::getDeity() const {
@@ -77,15 +77,15 @@ const IDeity& Character::getDeity() const {
 }
 
 int Character::getWeight() const {
-    return weight;
+    return mWeight;
 }
 
 int Character::getHeight() const {
-    return height;
+    return mHeight;
 }
 
 int Character::getAge() const {
-    return age;
+    return mAge;
 }
 
 int Character::getPositiveMod(int value) const {
@@ -96,7 +96,7 @@ int Character::getPositiveMod(int value) const {
 }
 
 int Character::getArmorSpeedPenalty() const {
-    Armor const * const armor = equipment.getArmor();
+    Armor const * const armor = mEquipment.getArmor();
     if (armor == 0) {
         return 0;
     }
@@ -104,7 +104,7 @@ int Character::getArmorSpeedPenalty() const {
 }
 
 int Character::getArmorSkillPenalty() const {
-    Armor const * const armor = equipment.getArmor();
+    Armor const * const armor = mEquipment.getArmor();
     if (armor == 0) {
         return 0;
     }
@@ -112,27 +112,27 @@ int Character::getArmorSkillPenalty() const {
 }
 
 int Character::getStrMod() const {
-    return ((strength + race->getValueBonusOfType(strength_t))/2 - 5);
+    return ((mStrength + mRace->getValueBonusOfType(strength_t))/2 - 5);
 }
 
 int Character::getConMod() const {
-    return ((constitution + race->getValueBonusOfType(constitution_t))/2 -5);
+    return ((mConstitution + mRace->getValueBonusOfType(constitution_t))/2 -5);
 }
 
 int Character::getDexMod() const {
-    return ((dexterity + race->getValueBonusOfType(dexterity_t))/2 - 5);
+    return ((mDexterity + mRace->getValueBonusOfType(dexterity_t))/2 - 5);
 }
 
 int Character::getIntMod() const {
-    return ((intellect + race->getValueBonusOfType(intellect_t))/2 - 5);
+    return ((mIntellect + mRace->getValueBonusOfType(intellect_t))/2 - 5);
 }
 
 int Character::getWisMod() const {
-    return ((wisdom + race->getValueBonusOfType(wisdom_t))/2 - 5);
+    return ((mWisdom + mRace->getValueBonusOfType(wisdom_t))/2 - 5);
 }
 
 int Character::getChrMod() const {
-    return ((charisma + race->getValueBonusOfType(charisma_t))/2 - 5);
+    return ((mCharisma + mRace->getValueBonusOfType(charisma_t))/2 - 5);
 }
 
 int Character::getAbilityModifier(AbilityType abltType) const {
@@ -154,31 +154,31 @@ int Character::getAbilityModifier(AbilityType abltType) const {
 }
 
 int Character::getStrScore() const {
-    return (strength + race->getValueBonusOfType(strength_t));
+    return (mStrength + mRace->getValueBonusOfType(strength_t));
 }
 
 int Character::getConScore() const {
-    return (constitution + race->getValueBonusOfType(constitution_t));
+    return (mConstitution + mRace->getValueBonusOfType(constitution_t));
 }
 
 int Character::getDexScore() const {
-    return (dexterity + race->getValueBonusOfType(dexterity_t));
+    return (mDexterity + mRace->getValueBonusOfType(dexterity_t));
 }
 
 int Character::getIntScore() const {
-    return (intellect + race->getValueBonusOfType(intellect_t));
+    return (mIntellect + mRace->getValueBonusOfType(intellect_t));
 }
 
 int Character::getWisScore() const {
-    return (wisdom + race->getValueBonusOfType(wisdom_t));
+    return (mWisdom + mRace->getValueBonusOfType(wisdom_t));
 }
 
 int Character::getChrScore() const {
-    return (charisma + race->getValueBonusOfType(charisma_t));
+    return (mCharisma + mRace->getValueBonusOfType(charisma_t));
 }
 
 int Character::getArmorClass() const {
-    Armor const * const armor = equipment.getArmor();
+    Armor const * const armor = mEquipment.getArmor();
     int bonusArmor = 0;
     if (armor != 0) {
         int abilityMod = 0;
@@ -191,7 +191,7 @@ int Character::getArmorClass() const {
         bonusArmor += abilityMod;
         bonusArmor += armor->getArmorBonus();
     }
-    return (10 + level/2 + classCharacter->getDefenseValue(armorClass) + bonusArmor/*shield + feat + misc + misc*/);
+    return (10 + mLevel/2 + mClassCharacter->getDefenseValue(armorClass) + bonusArmor/*shield + feat + misc + misc*/);
 }
 
 int Character::getFortitude() const {
@@ -199,7 +199,7 @@ int Character::getFortitude() const {
     if (getConMod() > abilityMod) {
         abilityMod = getConMod();
     }
-    return (10 + level/2 + abilityMod + classCharacter->getDefenseValue(fortitude)/* + feat + enhancement + misc + misc*/);
+    return (10 + mLevel/2 + abilityMod + mClassCharacter->getDefenseValue(fortitude)/* + feat + enhancement + misc + misc*/);
 }
 
 int Character::getReflex() const {
@@ -207,7 +207,7 @@ int Character::getReflex() const {
     if (getIntMod() > abilityMod) {
         abilityMod = getIntMod();
     }
-    return (10 + level/2 + abilityMod + classCharacter->getDefenseValue(reflex)/* + feat + enhancement + misc + misc*/);
+    return (10 + mLevel/2 + abilityMod + mClassCharacter->getDefenseValue(reflex)/* + feat + enhancement + misc + misc*/);
 }
 
 int Character::getWill() const {
@@ -215,113 +215,113 @@ int Character::getWill() const {
     if (getChrMod() > abilityMod) {
         abilityMod = getChrMod();
     }
-    return (10 + level/2 + abilityMod + classCharacter->getDefenseValue(will)/* + feat + enhancement + misc + misc*/);
+    return (10 + mLevel/2 + abilityMod + mClassCharacter->getDefenseValue(will)/* + feat + enhancement + misc + misc*/);
 }
 
 int Character::getAcrobatics() const {
-    return (skills.getSkillValue(acrobatics) +
-            getDexMod() + level/2 +
-            race->getValueBonusOfType(acrobatics) + getArmorSkillPenalty()/* + misc*/);
+    return (mSkills.getSkillValue(acrobatics) +
+            getDexMod() + mLevel/2 +
+            mRace->getValueBonusOfType(acrobatics) + getArmorSkillPenalty()/* + misc*/);
 }
 
 int Character::getArcana() const {
-    return (skills.getSkillValue(arcana) +
-            getIntMod() + level/2 +
-            race->getValueBonusOfType(arcana)/* + misc*/);
+    return (mSkills.getSkillValue(arcana) +
+            getIntMod() + mLevel/2 +
+            mRace->getValueBonusOfType(arcana)/* + misc*/);
 }
 
 int Character::getAthletics() const {
-    return (skills.getSkillValue(athletics) +
-            getStrMod() + level/2 +
-            race->getValueBonusOfType(athletics) + getArmorSkillPenalty()/* + misc*/);
+    return (mSkills.getSkillValue(athletics) +
+            getStrMod() + mLevel/2 +
+            mRace->getValueBonusOfType(athletics) + getArmorSkillPenalty()/* + misc*/);
 }
 
 int Character::getBluff() const {
-    return (skills.getSkillValue(bluff) +
-            getChrMod() + level/2 +
-            race->getValueBonusOfType(bluff)/* + misc*/);
+    return (mSkills.getSkillValue(bluff) +
+            getChrMod() + mLevel/2 +
+            mRace->getValueBonusOfType(bluff)/* + misc*/);
 }
 
 int Character::getDiplomacy() const {
-    return (skills.getSkillValue(diplomacy) +
-            getChrMod() + level/2 +
-            race->getValueBonusOfType(diplomacy)/* + misc*/);
+    return (mSkills.getSkillValue(diplomacy) +
+            getChrMod() + mLevel/2 +
+            mRace->getValueBonusOfType(diplomacy)/* + misc*/);
 }
 
 int Character::getDungeoneering() const {
-    return (skills.getSkillValue(dungeoneering) +
-            getWisMod() + level/2 +
-            race->getValueBonusOfType(dungeoneering)/* + misc*/);
+    return (mSkills.getSkillValue(dungeoneering) +
+            getWisMod() + mLevel/2 +
+            mRace->getValueBonusOfType(dungeoneering)/* + misc*/);
 }
 
 int Character::getEndurance() const {
-    return (skills.getSkillValue(endurance) +
-            getConMod() + level/2 +
-            race->getValueBonusOfType(endurance) + getArmorSkillPenalty()/* + misc*/);
+    return (mSkills.getSkillValue(endurance) +
+            getConMod() + mLevel/2 +
+            mRace->getValueBonusOfType(endurance) + getArmorSkillPenalty()/* + misc*/);
 }
 
 int Character::getHeal() const {
-    return (skills.getSkillValue(heal) +
-            getWisMod() + level/2 +
-            race->getValueBonusOfType(heal)/* + misc*/);
+    return (mSkills.getSkillValue(heal) +
+            getWisMod() + mLevel/2 +
+            mRace->getValueBonusOfType(heal)/* + misc*/);
 }
 
 int Character::getHistory() const {
-    return (skills.getSkillValue(history) +
-            getIntMod() + level/2 +
-            race->getValueBonusOfType(history)/* + misc*/);
+    return (mSkills.getSkillValue(history) +
+            getIntMod() + mLevel/2 +
+            mRace->getValueBonusOfType(history)/* + misc*/);
 }
 
 int Character::getInsight() const {
-    return (skills.getSkillValue(insight) +
-            getWisMod() + level/2 +
-            race->getValueBonusOfType(insight)/* + misc*/);
+    return (mSkills.getSkillValue(insight) +
+            getWisMod() + mLevel/2 +
+            mRace->getValueBonusOfType(insight)/* + misc*/);
 }
 
 int Character::getIntimidate() const {
-    return (skills.getSkillValue(intimidate) +
-            getChrMod() + level/2 +
-            race->getValueBonusOfType(intimidate)/* + misc*/);
+    return (mSkills.getSkillValue(intimidate) +
+            getChrMod() + mLevel/2 +
+            mRace->getValueBonusOfType(intimidate)/* + misc*/);
 }
 
 int Character::getNature() const {
-    return (skills.getSkillValue(nature) +
-            getWisMod() + level/2 +
-            race->getValueBonusOfType(nature)/* + misc*/);
+    return (mSkills.getSkillValue(nature) +
+            getWisMod() + mLevel/2 +
+            mRace->getValueBonusOfType(nature)/* + misc*/);
 }
 
 int Character::getPerception() const {
-    return (skills.getSkillValue(perception) +
-            getWisMod() + level/2 +
-            race->getValueBonusOfType(perception)/* + misc*/);
+    return (mSkills.getSkillValue(perception) +
+            getWisMod() + mLevel/2 +
+            mRace->getValueBonusOfType(perception)/* + misc*/);
 }
 
 int Character::getReligion() const {
-    return (skills.getSkillValue(religion) +
-            getIntMod() + level/2 +
-            race->getValueBonusOfType(religion)/* + misc*/);
+    return (mSkills.getSkillValue(religion) +
+            getIntMod() + mLevel/2 +
+            mRace->getValueBonusOfType(religion)/* + misc*/);
 }
 
 int Character::getStealth() const {
-    return (skills.getSkillValue(stealth) +
-            getDexMod() + level/2 +
-            race->getValueBonusOfType(stealth) + getArmorSkillPenalty()/* + misc*/);
+    return (mSkills.getSkillValue(stealth) +
+            getDexMod() + mLevel/2 +
+            mRace->getValueBonusOfType(stealth) + getArmorSkillPenalty()/* + misc*/);
 }
 
 int Character::getStreetwise() const {
-    return (skills.getSkillValue(streetwise) +
-            getChrMod() + level/2 +
-            race->getValueBonusOfType(streetwise)/* + misc*/);
+    return (mSkills.getSkillValue(streetwise) +
+            getChrMod() + mLevel/2 +
+            mRace->getValueBonusOfType(streetwise)/* + misc*/);
 }
 
 int Character::getThievery() const {
-    return (skills.getSkillValue(thievery) +
-            getDexMod() + level/2 +
-            race->getValueBonusOfType(thievery) + getArmorSkillPenalty()/* + misc*/);
+    return (mSkills.getSkillValue(thievery) +
+            getDexMod() + mLevel/2 +
+            mRace->getValueBonusOfType(thievery) + getArmorSkillPenalty()/* + misc*/);
 }
 
 int Character::getLevel() const {
-    return level;
+    return mLevel;
 }
 
 int Character::getTotalExpereance() const {
@@ -329,24 +329,24 @@ int Character::getTotalExpereance() const {
 }
 
 RaceType Character::getRace() const {
-    return race->getRace();
+    return mRace->getRace();
 }
 
 ClassType Character::getClass() const {
-    return classCharacter->getClass();
+    return mClassCharacter->getClass();
 }
 
 Size Character::getSize() const {
-    return race->getSize();
+    return mRace->getSize();
 }
 
 int Character::getInitiative() const {
-    return (getDexMod() + level/2/* + feat + misc*/);
+    return (getDexMod() + mLevel/2/* + feat + misc*/);
 }
 
 int Character::getMaxHitPoint() const {    
-    int extraHP = classCharacter->getHitPointPerLevel() * (level - 1);
-    return (extraHP + classCharacter->getHitPointAtFirstLevel() + getConScore()/* + feat + misc*/);
+    int extraHP = mClassCharacter->getHitPointPerLevel() * (mLevel - 1);
+    return (extraHP + mClassCharacter->getHitPointAtFirstLevel() + getConScore()/* + feat + misc*/);
 }
 
 int Character::getBloodied() const {
@@ -354,7 +354,7 @@ int Character::getBloodied() const {
 }
 
 int Character::getHealingSurgesPerDay() const {
-    return (classCharacter->getHealingSurgesPerDay() + getConMod()/* + feat + misc*/);
+    return (mClassCharacter->getHealingSurgesPerDay() + getConMod()/* + feat + misc*/);
 }
 
 int Character::getHealingSurgesValue() const {
@@ -366,7 +366,7 @@ int Character::getActionPoints() const {
 }
 
 int Character::getSpeed() const {
-    return (race->getSpeed() + getArmorSpeedPenalty()/* + item + misc*/);
+    return (mRace->getSpeed() + getArmorSpeedPenalty()/* + item + misc*/);
 }
 
 int Character::getPassiveInsight() const {
@@ -378,86 +378,86 @@ int Character::getPassivePerception() const {
 }
 
 Vision Character::getVision() const {
-    return race->getVision();
+    return mRace->getVision();
 }
 
 int Character::getAverageMinHeight() const {
-    return race->getAverageMinHeight();
+    return mRace->getAverageMinHeight();
 }
 
 int Character::getAverageMaxHeight() const {
-    return race->getAverageMinHeight();
+    return mRace->getAverageMinHeight();
 }
 
 int Character::getAverageMinWeight() const {
-    return race->getAverageMinWeight();
+    return mRace->getAverageMinWeight();
 }
 
 int Character::getAverageMaxWeight() const {
-    return race->getAverageMaxWeight();
+    return mRace->getAverageMaxWeight();
 }
 
 int Character::getAverageAge() const {
-    return race->getAverageAge();
+    return mRace->getAverageAge();
 }
 
 const std::vector &Character::getLanguage() const {
-    return languages;
+    return mLanguages;
 }
 
 int Character::getCountLanguage() const {
-    return countLanguage;
+    return mCountLanguage;
 }
 
 RoleType Character::getRole() const {
-    return classCharacter->getRoleType();
+    return mClassCharacter->getRoleType();
 }
 
 PowerSource Character::getPowerSource() const {
-    return classCharacter->getPowerSource();
+    return mClassCharacter->getPowerSource();
 }
 
 AbilityType const * Character::getKeyAbility() const {
-    return classCharacter->getKeyAbility();
+    return mClassCharacter->getKeyAbility();
 }
 
 int Character::getCountKeyAbility() const {
-    return classCharacter->getCountKeyAbility();
+    return mClassCharacter->getCountKeyAbility();
 }
 
 ImplementType const * Character::getImplements() const {
-    return classCharacter->getImplements();
+    return mClassCharacter->getImplements();
 }
 
 int Character::getCountImplement() const {
-    return classCharacter->getCountImplement();
+    return mClassCharacter->getCountImplement();
 }
 
 int Character::setSkillTrained(SkillType skillType) {
-    if (getRestCountSkillTrain() >= countMaxSkill) {
+    if (getRestCountSkillTrain() >= mCountMaxSkill) {
         return -3;
     }
-    SkillType const * classSkill = classCharacter->getClassSkill();
-    int countClassSkill = classCharacter->getCountClassSkill();
+    SkillType const * classSkill = mClassCharacter->getClassSkill();
+    int countClassSkill = mClassCharacter->getCountClassSkill();
     for (int i = 0; i < countClassSkill; ++i) {
         if (skillType == classSkill[i]) {
-            return skills.setTrainSkill(skillType);
+            return mSkills.setTrainSkill(skillType);
         }
     }
     return -4;
 }
 
 int Character::getRestCountSkillTrain() const {
-    return (skills.getCountTrainedSkill() - classCharacter->getCountTrainedSkill()/* - featTrainedSkill*/);
+    return (mSkills.getCountTrainedSkill() - mClassCharacter->getCountTrainedSkill()/* - featTrainedSkill*/);
 }
 
 int Character::setDeity(IDeity *deity) {
-    if (!flagSetAlignment) {
+    if (!mFlagSetAlignment) {
         delete mDeity;
         mDeity = deity;
         return 0;
     }
-    else if (deity->isCompatibleAlignment(alignment)) {
+    else if (deity->isCompatibleAlignment(mAlignment)) {
         delete mDeity;
         mDeity = deity;
         return 0;
@@ -465,13 +465,13 @@ int Character::setDeity(IDeity *deity) {
     return -5;
 }
 
-int Character::setAlignment(Alignment _alignment) {
+int Character::setAlignment(Alignment alignment) {
     if (mDeity == 0) {
-        alignment = _alignment;
-        flagSetAlignment = true;
-    } else if (mDeity->isCompatibleAlignment(_alignment)) {
-        alignment = _alignment;
-        flagSetAlignment = true;
+        mAlignment = alignment;
+        mFlagSetAlignment = true;
+    } else if (mDeity->isCompatibleAlignment(alignment)) {
+        mAlignment = alignment;
+        mFlagSetAlignment = true;
     }
     else {
         return -6;
@@ -480,13 +480,13 @@ int Character::setAlignment(Alignment _alignment) {
 }
 
 int Character::setLanguage(Language language) {
-    for (int i = 0; i < countLanguage; ++i) {
-        Language lang = languages[i];
+    for (int i = 0; i < mCountLanguage; ++i) {
+        Language lang = mLanguages[i];
         if (lang == language) {
             return -8;
         }
         if (lang == ) {
-            languages[i] = language;
+            mLanguages[i] = language;
             return 0;
         }
     }
@@ -494,5 +494,5 @@ int Character::setLanguage(Language language) {
 }
 
 void Character::setArmor(ArmorType armorType) {
-    equipment.setArmor(armorType);
+    mEquipment.setArmor(armorType);
 }
