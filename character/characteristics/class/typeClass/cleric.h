@@ -14,6 +14,7 @@ public:
     Cleric();
     ~Cleric();
     const std::vector& getImplements() const;
+    const char * toString() const;
 };
 
 #endif // CLERIC_H

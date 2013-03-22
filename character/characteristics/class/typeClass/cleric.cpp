@@ -3,19 +3,19 @@
 Cleric::Cleric() {
     role = leaders;
     power = divine;
-    classType = cleric;
     hitPointAtFirstLevel = 12;
     hitPointPerLevel = 5;
     healingSurgesPerDay = 7;
     countTrainedSkills = 3;
     bonus.setBonus(will, 2);
+//    bonus.setBonus(religion, 5); // this skill trained
 
-    classSkill.insert(arcana, false);
-    classSkill.insert(diplomacy, false);
-    classSkill.insert(heal, false);
-    classSkill.insert(history, false);
-    classSkill.insert(insight, false);
-    classSkill.insert(religion, true);
+    classSkill.push_back(arcana);
+    classSkill.push_back(diplomacy);
+    classSkill.push_back(heal);
+    classSkill.push_back(history);
+    classSkill.push_back(insight);
+    classSkill.push_back(religion);
 
     keyAbility.push_back(wisdom_t);
     keyAbility.push_back(strength_t);
@@ -29,4 +29,11 @@ Cleric::~Cleric() {
 
 const std::vector<ImplementType>& Cleric::getImplements() const {
     return implements;
+}
+
+const char *Cleric::toString() const {
+    char name[] = "Cleric";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
 }
