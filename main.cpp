@@ -1,7 +1,5 @@
 #include <iostream>
 #include "character/character.h"
-#include "character/characteristics/race/racetype.h"
-#include "character/characteristics/class/classtype.h"
 #include "character/characteristics/equipment/equipment.h"
 #include "character/characteristics/deity/typeDeity/bahamut/bahamut.h"
 #include "character/characteristics/deity/typeDeity/asmodeus/asmodeus.h"
@@ -22,6 +20,7 @@
 #include "character/characteristics/deity/typeDeity/torog/torog.h"
 #include "character/characteristics/deity/typeDeity/vecna/vecna.h"
 #include "character/characteristics/deity/typeDeity/zehir/zehir.h"
+#include "character/characteristics/class/typeClass/cleric.h"
 
 
 /**
@@ -117,7 +116,6 @@ char* sizeToChar(Size size) {
     return 0;
 }
 
-
 char* armorKindToChar(ArmorKind armor) {
     if (armor == lightArmor) {
         return "lightArmor";
@@ -125,28 +123,6 @@ char* armorKindToChar(ArmorKind armor) {
     else {
         return "heavyArmor";
     }
-}
-
-char* classTypeToChar(ClassType classT) {
-    switch (classT) {
-    case cleric:
-        return "cleric";
-    case fighter:
-        return "fighter";
-    case paladin:
-        return "paladin";
-    case ranger:
-        return "ranger";
-    case rogue:
-        return "rogue";
-    case warlock:
-        return "warlock";
-    case warlord:
-        return "warlord";
-    case wizard:
-        return "wizard";
-    }
-    return 0;
 }
 
 char* defenseTypeToChar(DefenseType defense) {
@@ -163,56 +139,8 @@ char* defenseTypeToChar(DefenseType defense) {
     return 0;
 }
 
-//char* deityTypeToChar(DeityType deity) {
-//    switch (deity) {
-//    case undefined:
-//        return "";
-//    case Avandra:
-//        return "Avandra";
-//    case Bahamut:
-//        return "Bahamut";
-//    case Corellon:
-//        return "Corellon";
-//    case Erathis:
-//        return "Erathis";
-//    case Ioun:
-//        return "Ioun";
-//    case Kord:
-//        return "Kord";
-//    case Melora:
-//        return "Melora";
-//    case Moradin:
-//        return "Moradin";
-//    case Pelor:
-//        return "Pelor";
-//    case TheRavenQueen:
-//        return "The Raven Queen";
-//    case Sehanine:
-//        return "Sehanine";
-//    case Asmodeus:
-//        return "Asmodeus";
-//    case Bane:
-//        return "Bane";
-//    case Gruumsh:
-//        return "Gruumsh";
-//    case Lolth:
-//        return "Lolth";
-//    case Tiamat:
-//        return "Tiamat";
-//    case Torog:
-//        return "Torog";
-//    case Vecna:
-//        return "Vecna";
-//    case Zehir:
-//        return "Zehir";
-//    }
-//    return 0;
-//}
-
 char* languageToChar(Language language) {
     switch (language) {
-    case choiceOfOneOther:
-        return "choice of one other";
     case common:
         return "common";
     case deepSpeech:
@@ -237,28 +165,6 @@ char* languageToChar(Language language) {
     return 0;
 }
 
-char* raceToChar(RaceType race) {
-    switch (race) {
-    case dragonBorn:
-        return "dragonborn";
-    case dwarf:
-        return "dwarf";
-    case eladrin:
-        return "eladrin";
-    case elf:
-        return "elf";
-    case halfElf:
-        return "halfelf";
-    case halfling:
-        return "halfling";
-    case human:
-        return "human";
-    case tiefling:
-        return "tiefling";
-    }
-    return 0;
-}
-
 char* visionToChar(Vision vision) {
     switch (vision) {
     case normal:
@@ -272,7 +178,9 @@ char* visionToChar(Vision vision) {
 }
 
 int main() {
-    Character character(dwarf, cleric, "Vondal", "Oleg", "", 21, male, 190, 100);
+    Race *race = new Avandra();
+    ClassCharacter *classCharacter = new Cleric();
+    Character character(race, classCharacter, "Vondal", "Vasya", "", 21, male, 190, 100);
     if (character.setAlignment(evil) < 0) {
         std::cout << "Selected aligment is not compatible with the chosen deity." << std::endl;
         return 0;
@@ -308,8 +216,6 @@ int main() {
     std::cout << "Character name: " << character.getNameCharacter() << std::endl;
     std::cout << "Command name: " << character.getNameCommand() << std::endl;
     std::cout << "Level: " << character.getLevel() << std::endl;
-    std::cout << "Class: " << classTypeToChar(character.getClass()) << std::endl;
-    std::cout << "Race: " << raceToChar(character.getRace()) << std::endl;
     std::cout << "Total XP: " << character.getTotalExpereance() << std::endl;
     std::cout << "Size: " << sizeToChar(character.getSize()) << std::endl;
     std::cout << "Vision: " << visionToChar(character.getVision()) << std::endl;
