@@ -21,7 +21,14 @@
 #include "character/characteristics/deity/typeDeity/vecna/vecna.h"
 #include "character/characteristics/deity/typeDeity/zehir/zehir.h"
 #include "character/characteristics/class/typeClass/cleric.h"
-
+#include "character/characteristics/race/typeRace/dragonborn.h"
+#include "character/characteristics/race/typeRace/dwarf.h"
+#include "character/characteristics/race/typeRace/eladrin.h"
+#include "character/characteristics/race/typeRace/elf.h"
+#include "character/characteristics/race/typeRace/halfelf.h"
+#include "character/characteristics/race/typeRace/halfling.h"
+#include "character/characteristics/race/typeRace/human.h"
+#include "character/characteristics/race/typeRace/tiefling.h"
 
 /**
   Коды ошибок:
@@ -178,7 +185,7 @@ char* visionToChar(Vision vision) {
 }
 
 int main() {
-    Race *race = new Avandra();
+    Race *race = new Elf();
     ClassCharacter *classCharacter = new Cleric();
     Character character(race, classCharacter, "Vondal", "Vasya", "", 21, male, 190, 100);
     if (character.setAlignment(evil) < 0) {
