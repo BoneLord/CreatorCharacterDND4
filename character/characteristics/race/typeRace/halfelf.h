@@ -1,6 +1,7 @@
 #ifndef HALFELF_H
 #define HALFELF_H
 
+#include <cstring>
 #include "character/characteristics/race/race.h"
 #include "character/characteristics/race/characteristics/size.h"
 #include "character/characteristics/race/characteristics/vision.h"
