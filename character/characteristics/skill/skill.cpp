@@ -39,10 +39,6 @@ int Skill::setUnTrain() {
     return -2;
 }
 
-SkillType Skill::getSkillType() const {
-    return skill;
-}
-
 int Skill::getValue() const {
     if (trainedFlag) {
         return 5;
