@@ -11,8 +11,8 @@ PowerSource ClassCharacter::getPowerSource() const {
     return power;
 }
 
-const std::vector<SkillType>& ClassCharacter::getClassSkill() const {
-    return classSkill;
+const std::vector* ClassCharacter::getClassSkill() const {
+    return &classSkill;
 }
 
 int ClassCharacter::getHitPointAtFirstLevel() const {
@@ -31,8 +31,8 @@ int ClassCharacter::getCountTrainedSkills() const {
     return countTrainedSkills;
 }
 
-const std::vector& ClassCharacter::getKeyAbility() const {
-    return keyAbility;
+const std::vector* ClassCharacter::getKeyAbility() const {
+    return &keyAbility;
 }
 
 bool ClassCharacter::isCanTrainSkillAtFirstLevel(SkillType skill) const {

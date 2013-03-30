@@ -25,12 +25,12 @@ public:
     RoleType getRoleType() const;
     PowerSource getPowerSource() const;
     const Bonus& getBonus() const;
-    const std::vector<SkillType>& getClassSkill() const;
+    const std::vector<SkillType>* getClassSkill() const;
     int getHitPointAtFirstLevel() const;
     int getHitPointPerLevel() const;
     int getHealingSurgesPerDay() const;
     int getCountTrainedSkills() const;
-    const std::vector<AbilityType>& getKeyAbility() const;
+    const std::vector<AbilityType>* getKeyAbility() const;
     bool isCanTrainSkillAtFirstLevel(SkillType skill) const;
     virtual const char * toString() const = 0;
 };
