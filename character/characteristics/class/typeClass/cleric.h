@@ -14,7 +14,7 @@ class Cleric : public ClassCharacter {
 public:
     Cleric();
     ~Cleric();
-    const std::vector<ImplementType>& getImplements() const;
+    const std::vector<ImplementType> * getImplements() const;
     const char * toString() const;
 };
 

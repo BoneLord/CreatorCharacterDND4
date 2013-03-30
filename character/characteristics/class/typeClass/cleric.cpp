@@ -27,11 +27,11 @@ Cleric::Cleric() {
 Cleric::~Cleric() {
 }
 
-const std::vector<ImplementType>& Cleric::getImplements() const {
-    return implements;
+const std::vector * Cleric::getImplements() const {
+    return &implements;
 }
 
-const char *Cleric::toString() const {
+const char * Cleric::toString() const {
     char name[] = "Cleric";
     char *pName = new char[strlen(name) + 1];
     strcpy(pName, name);
