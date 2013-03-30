@@ -29,8 +29,8 @@ public:
     Size getSize() const;
     int getSpeed() const;
     Vision getVision() const;
-    const std::vector<Language>& getLanguages() const;
-    const Bonus& getBonus() const;
+    const std::vector<Language> * getLanguages() const;
+    const Bonus * getBonus() const;
     virtual const char * toString() const = 0;
 };
 

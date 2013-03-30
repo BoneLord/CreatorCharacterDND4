@@ -35,10 +35,10 @@ Vision Race::getVision() const {
     return vision;
 }
 
-const std::vector<Language>& Race::getLanguages() const {
-    return languages;
+const std::vector * Race::getLanguages() const {
+    return &languages;
 }
 
-const Bonus& Race::getBonus() const {
-    return bonus;
+const Bonus * Race::getBonus() const {
+    return &bonus;
 }
