@@ -1,79 +1,79 @@
 #include "character/characteristics/equipment/equipment.h"
 
 Equipment::Equipment() {
-    armor = 0;
-    weapon = 0;
-//    arms = 0;
-//    feet = 0;
-//    hands = 0;
-//    head = 0;
-//    neck = 0;
-//    ring1 = 0;
-//    ring2 = 0;
-//    waist = 0;
+    mArmor = 0;
+    mWeapon = 0;
+//    mArms = 0;
+//    mFeet = 0;
+//    mHands = 0;
+//    mHead = 0;
+//    mNeck = 0;
+//    mRing1 = 0;
+//    mRing2 = 0;
+//    mWaist = 0;
 }
 
 Equipment::~Equipment() {
-    delete armor;
-    delete weapon;
-//    delete arms;
-//    delete feet;
-//    delete hands;
-//    delete head;
-//    delete neck;
-//    delete ring1;
-//    delete ring2;
-//    delete waist;
+    delete mArmor;
+    delete mWeapon;
+//    delete mArms;
+//    delete mFeet;
+//    delete mHands;
+//    delete mHead;
+//    delete mNeck;
+//    delete mRing1;
+//    delete mRing2;
+//    delete mWaist;
 }
 
-void Equipment::setArmor(ArmorType armorType) {
+void Equipment::setArmor(Armor *armor) {
     if (armor != 0) {
         delete armor;
     }
-    armor = Armor::createArmor(armorType);
+    mArmor = armor;
 }
 
-void Equipment::setWeapon(WeaponType weaponType) {
-    if (weapon != 0) {
-        delete weapon;
+void Equipment::setWeapon(Weapon *weapon) {
+    if (armor != 0) {
+        delete armor;
     }
-    weapon = Weapon::createWeapon(weaponType);
+    mArmor = armor;
 }
 
-//void Equipment::setArms(ArmsType armsType) {
-//    if (arms != 0) {
-//        delete arms;
-//    }
-//    arms = Arms::createArms(armsType);
-//}
+void Equipment::setArms(Arms arms) {
+    if (arms != 0) {
+        delete arms;
+    }
+    arms = Arms::createArms(armsType);
+}
 
-//void Equipment::setFeet(FeetType feetType) {
-//    if (feet != 0) {
-//        delete feet;
-//    }
-//    feet = Feet::createFeet(feetType);
-//}
+void Equipment::setFeet(Feet feet) {
+    if (feet != 0) {
+        delete feet;
+    }
+    feet = Feet::createFeet(feetType);
+}
 
-//void Equipment::setHands(HandsType handsType) {
-//    if (hands != 0) {
-//        delete hands;
-//    }
-//    hands = Hands::createHands(handsType);
-//}
+void Equipment::setHands(Hands *hands) {
+    if (hands != 0) {
+        delete hands;
+    }
+    hands = Hands::createHands(handsType);
+}
 
-//void Equipment::setHead(HeadType headType) {
-//    if (head != 0) {
-//        delete head;
-//    }
-//    head = Head::createHead(headType);
-//}
+void Equipment::setHead(Head *head) {
+    if (head != 0) {
+        delete head;
+    }
+    head = Head::createHead(headType);
+}
 
-//void Equipment::setNeck(NeckType neckType) {
-//    if (neck != 0) {
-//        delete neck;
-//    }
-//    neck = Neck::createNeck(neckType);
-//}
+void Equipment::setNeck(Neck *neck) {
+    if (neck != 0) {
+        delete neck;
+    }
+    neck = Neck::createNeck(neckType);
+}
 
 const Armor *const Equipment::getArmor() const {
     return armor;
