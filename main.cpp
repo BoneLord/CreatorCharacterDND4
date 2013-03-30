@@ -227,7 +227,7 @@ int main() {
     std::cout << "Size: " << sizeToChar(character.getSize()) << std::endl;
     std::cout << "Vision: " << visionToChar(character.getVision()) << std::endl;
     std::cout << "Alignment: " << alignmentToChar(character.getAlignment()) << std::endl;
-    std::cout << "Deity: " << character.getDeity().toString() << std::endl;
+    std::cout << "Deity: " << character.getDeity()->toString() << std::endl;
     std::cout << "Initiative: " << character.getInitiative() << std::endl;
     std::cout << "Strength: " << character.getStrScore() << std::endl;
     std::cout << "Strength mod: " << character.getStrMod() << std::endl;
