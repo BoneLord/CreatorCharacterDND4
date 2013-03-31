@@ -1,6 +1,5 @@
 #include <iostream>
 #include "character/character.h"
-#include "character/characteristics/equipment/equipment.h"
 #include "character/characteristics/deity/typeDeity/bahamut/bahamut.h"
 #include "character/characteristics/deity/typeDeity/asmodeus/asmodeus.h"
 #include "character/characteristics/deity/typeDeity/avandra/avandra.h"
@@ -83,24 +82,6 @@ char* alignmentToChar(Alignment alignment) {
         return "chaotic evil";
     case unaligned:
         return "unaligned";
-    }
-    return 0;
-}
-
-char* armorTypeToChar(ArmorType armor) {
-    switch (armor) {
-    case chainmail:
-        return "chainmail";
-    case leather:
-        return "leather";
-    case hide:
-        return "hide";
-    case plate:
-        return "plate";
-    case scale:
-        return "scale";
-    case cloth:
-        return "cloth";
     }
     return 0;
 }
@@ -270,10 +251,7 @@ int main() {
     std::cout << "Passive insight: " << character.getPassiveInsight() << std::endl;
     std::cout << "Passive perception: " << character.getPassivePerception() << std::endl;
 
-
-//    Equipment eq;
-//    eq.setArmor(scale);
-//    Armor const * const armor = eq.getArmor();
+//    const Armor * const armor = new Scale();
 //    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
@@ -281,8 +259,9 @@ int main() {
 //    std::cout << "Speed penalty: " << armor->getSpeedPenalty() << std::endl;
 //    std::cout << "Armor weight:  " << armor->getWeight() << std::endl;
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
+//    delete armor;
 
-//    eq.setArmor(chainmail);
+//    armor = new Chainmale();
 //    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
@@ -290,8 +269,9 @@ int main() {
 //    std::cout << "Speed penalty: " << armor->getSpeedPenalty() << std::endl;
 //    std::cout << "Armor weight:  " << armor->getWeight() << std::endl;
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
+//    delete armor;
 
-//    eq.setArmor(leather);
+//    armor = new Leather();
 //    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
@@ -299,8 +279,9 @@ int main() {
 //    std::cout << "Speed penalty: " << armor->getSpeedPenalty() << std::endl;
 //    std::cout << "Armor weight:  " << armor->getWeight() << std::endl;
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
+//    delete armor;
 
-//    eq.setArmor(hide);
+//    armor = new Hide();
 //    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
@@ -308,8 +289,9 @@ int main() {
 //    std::cout << "Speed penalty: " << armor->getSpeedPenalty() << std::endl;
 //    std::cout << "Armor weight:  " << armor->getWeight() << std::endl;
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
+//    delete armor;
 
-//    eq.setArmor(plate);
+//    armor = new Plate();
 //    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
@@ -317,8 +299,9 @@ int main() {
 //    std::cout << "Speed penalty: " << armor->getSpeedPenalty() << std::endl;
 //    std::cout << "Armor weight:  " << armor->getWeight() << std::endl;
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
+//    delete armor;
 
-//    eq.setArmor(cloth);
+//    armor = new Cloth();
 //    std::cout << "" << std::endl;
 //    std::cout << "Armor kind:    " << armor->isAddModifiersToArmor() << std::endl;
 //    std::cout << "Armor bonus:   " << armor->getArmorBonus() << std::endl;
@@ -326,5 +309,6 @@ int main() {
 //    std::cout << "Speed penalty: " << armor->getSpeedPenalty() << std::endl;
 //    std::cout << "Armor weight:  " << armor->getWeight() << std::endl;
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
+//    delete armor;
     return 0;
 }
