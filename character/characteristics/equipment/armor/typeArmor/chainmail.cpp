@@ -6,8 +6,8 @@ Chainmail::Chainmail() {
     speedPenalty = -1;
     price = 40;
     weight = 40;
-    armorKind = heavyArmor;
 }
 
 Chainmail::~Chainmail() {
 }
+

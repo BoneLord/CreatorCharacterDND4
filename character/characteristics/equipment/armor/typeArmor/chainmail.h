@@ -1,10 +1,9 @@
 #ifndef CHAINMAIL_H
 #define CHAINMAIL_H
 
-#include "character/characteristics/equipment/armor/armor.h"
-#include "character/characteristics/equipment/armor/armorkind.h"
+#include "character/characteristics/equipment/armor/heavyarmor.h"
 
-class Chainmail : public Armor {
+class Chainmail : public HeavyArmor {
 public:
     Chainmail();
     ~Chainmail();

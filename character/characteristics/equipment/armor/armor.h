@@ -1,9 +1,6 @@
 #ifndef ARMOR_H
 #define ARMOR_H
 
-#include "character/characteristics/equipment/armor/armortype.h"
-#include "character/characteristics/equipment/armor/armorkind.h"
-
 class Armor {
 protected:
     int armorBonus;
@@ -11,7 +8,6 @@ protected:
     int speedPenalty;
     int price;
     int weight;
-    ArmorKind armorKind;
 public:
     Armor();
     virtual ~Armor();
@@ -20,8 +16,7 @@ public:
     int getSpeedPenalty() const;
     int getPrice() const;
     int getWeight() const;
-    bool isAddModifiersToArmor() const;
-    static Armor * createArmor(ArmorType armorType);
+    virtual bool isAddModifiersToArmor() const = 0;
 };
 
 #endif // ARMOR_H

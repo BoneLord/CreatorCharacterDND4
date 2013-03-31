@@ -6,7 +6,6 @@ Plate::Plate() {
     speedPenalty = -1;
     price = 50;
     weight = 50;
-    armorKind = heavyArmor;
 }
 
 Plate::~Plate() {

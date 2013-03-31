@@ -6,8 +6,8 @@ Hide::Hide() {
     speedPenalty = 0;
     price = 30;
     weight = 25;
-    armorKind = lightArmor;
 }
 
 Hide::~Hide() {
 }
+

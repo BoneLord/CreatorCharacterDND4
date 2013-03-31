@@ -6,8 +6,8 @@ Cloth::Cloth() {
     speedPenalty = 0;
     price = 1;
     weight = 4;
-    armorKind = lightArmor;
 }
 
 Cloth::~Cloth() {
 }
+

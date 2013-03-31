@@ -1,10 +1,9 @@
 #ifndef LEATHER_H
 #define LEATHER_H
 
-#include "character/characteristics/equipment/armor/armor.h"
-#include "character/characteristics/equipment/armor/armorkind.h"
+#include "character/characteristics/equipment/armor/lightarmor.h"
 
-class Leather : public Armor {
+class Leather : public LightArmor {
 public:
     Leather();
     ~Leather();

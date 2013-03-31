@@ -6,7 +6,6 @@ Scale::Scale() {
     speedPenalty = -1;
     price = 45;
     weight = 45;
-    armorKind = heavyArmor;
 }
 
 Scale::~Scale() {

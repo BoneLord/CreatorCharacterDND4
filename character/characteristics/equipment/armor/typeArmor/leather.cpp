@@ -6,7 +6,6 @@ Leather::Leather() {
     speedPenalty = 0;
     price = 25;
     weight = 15;
-    armorKind = lightArmor;
 }
 
 Leather::~Leather() {

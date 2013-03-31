@@ -1,10 +1,9 @@
 #ifndef CLOTH_H
 #define CLOTH_H
 
-#include "character/characteristics/equipment/armor/armor.h"
-#include "character/characteristics/equipment/armor/armorkind.h"
+#include "character/characteristics/equipment/armor/lightarmor.h"
 
-class Cloth : public Armor {
+class Cloth : public LightArmor {
 public:
     Cloth();
     ~Cloth();

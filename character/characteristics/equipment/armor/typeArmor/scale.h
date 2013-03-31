@@ -1,10 +1,9 @@
 #ifndef SCALE_H
 #define SCALE_H
 
-#include "character/characteristics/equipment/armor/armor.h"
-#include "character/characteristics/equipment/armor/armorkind.h"
+#include "character/characteristics/equipment/armor/heavyarmor.h"
 
-class Scale : public Armor {
+class Scale : public HeavyArmor {
 public:
     Scale();
     ~Scale();
