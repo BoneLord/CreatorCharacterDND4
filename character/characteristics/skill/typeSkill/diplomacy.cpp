@@ -6,3 +6,17 @@ Diplomacy::Diplomacy(bool trndFlag) : Skill(trndFlag) {
 
 Diplomacy::~Diplomacy() {
 }
+
+void Diplomacy::setBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(diplomacy);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue += (*it).second;
+    }
+}
+
+const char * Diplomacy::toString() const {
+    char name[] = "Diplomacy";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
+}

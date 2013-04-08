@@ -7,6 +7,8 @@ class Arcana : public Skill {
 public:
     Arcana(bool trndFlag = false);
     ~Arcana();
+    void setBonus(const Bonus * const bonus);
+    const char * toString() const;
 };
 
 #endif // ARCANA_H

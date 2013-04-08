@@ -6,3 +6,17 @@ Stealth::Stealth(bool trndFlag) : Skill(trndFlag) {
 
 Stealth::~Stealth() {
 }
+
+void Stealth::setBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(stealth);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue += (*it).second;
+    }
+}
+
+const char * Stealth::toString() const {
+    char name[] = "Stealth";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
+}

@@ -6,3 +6,17 @@ Intimidate::Intimidate(bool trndFlag) : Skill(trndFlag) {
 
 Intimidate::~Intimidate() {
 }
+
+void Intimidate::setBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(intimidate);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue += (*it).second;
+    }
+}
+
+const char * Intimidate::toString() const {
+    char name[] = "Intimidate";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
+}

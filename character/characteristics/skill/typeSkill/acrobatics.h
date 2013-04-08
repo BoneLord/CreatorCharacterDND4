@@ -7,6 +7,8 @@ class Acrobatics : public Skill {
 public:
     Acrobatics(bool trndFlag = false);
     ~Acrobatics();
+    void setBonus(const Bonus * const bonus);
+    const char * toString() const;
 };
 
 #endif // ACROBATICS_H

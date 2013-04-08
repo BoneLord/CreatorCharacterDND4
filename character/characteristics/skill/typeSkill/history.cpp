@@ -6,3 +6,17 @@ History::History(bool trndFlag) : Skill(trndFlag) {
 
 History::~History() {
 }
+
+void History::setBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(history);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue += (*it).second;
+    }
+}
+
+const char * History::toString() const {
+    char name[] = "History";
+    char *pName = new char[strlen(name) + 1];
+    strcpy(pName, name);
+    return pName;
+}

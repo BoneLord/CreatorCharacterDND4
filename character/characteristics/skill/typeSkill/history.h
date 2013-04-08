@@ -7,6 +7,8 @@ class History : public Skill {
 public:
     History(bool trndFlag = false);
     ~History();
+    void setBonus(const Bonus * const bonus);
+    const char * toString() const;
 };
 
 #endif // HISTORY_H

@@ -7,6 +7,8 @@ class Stealth : public Skill {
 public:
     Stealth(bool trndFlag = false);
     ~Stealth();
+    void setBonus(const Bonus * const bonus);
+    const char * toString() const;
 };
 
 #endif // STEALTH_H

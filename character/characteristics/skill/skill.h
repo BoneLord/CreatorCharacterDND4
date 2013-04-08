@@ -3,11 +3,13 @@
 
 #include "character/characteristics/abilitytype.h"
 #include "character/characteristics/skill/skilltype.h"
+#include "character/characteristics/bonus/bonus.h"
 
 class Skill {
 protected:
     bool trainedFlag;
     AbilityType ability;
+    int mValue;
 public:
     Skill(bool trndFlag = false);
     virtual ~Skill();
@@ -17,7 +19,7 @@ public:
     AbilityType getBaseAbility() const;
     bool isTrained() const;
     virtual const char * toString() const = 0;
-    static Skill* createSkill(SkillType skillType, bool trndFlag = false);
+    virtual void setBonus(const Bonus * const bonus) = 0;
 };
 
 #endif // SKILL_H
