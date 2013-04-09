@@ -7,10 +7,17 @@ Intimidate::Intimidate(bool trndFlag) : Skill(trndFlag) {
 Intimidate::~Intimidate() {
 }
 
-void Intimidate::setBonus(const Bonus * const bonus) {
+void Intimidate::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(intimidate);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Intimidate::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(intimidate);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

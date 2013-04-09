@@ -7,10 +7,17 @@ Insight::Insight(bool trndFlag) : Skill(trndFlag) {
 Insight::~Insight() {
 }
 
-void Insight::setBonus(const Bonus * const bonus) {
+void Insight::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(insight);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Insight::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(insight);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

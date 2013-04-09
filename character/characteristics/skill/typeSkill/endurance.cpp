@@ -7,10 +7,17 @@ Endurance::Endurance(bool trndFlag) : Skill(trndFlag) {
 Endurance::~Endurance() {
 }
 
-void Endurance::setBonus(const Bonus * const bonus) {
+void Endurance::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(endurance);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Endurance::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(endurance);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

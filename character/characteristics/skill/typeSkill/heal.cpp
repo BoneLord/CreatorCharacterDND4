@@ -7,10 +7,17 @@ Heal::Heal(bool trndFlag) : Skill(trndFlag) {
 Heal::~Heal() {
 }
 
-void Heal::setBonus(const Bonus * const bonus) {
+void Heal::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(heal);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Heal::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(heal);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

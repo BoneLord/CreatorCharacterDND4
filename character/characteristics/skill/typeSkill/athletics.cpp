@@ -7,10 +7,17 @@ Athletics::Athletics(bool trndFlag) : Skill(trndFlag) {
 Athletics::~Athletics() {
 }
 
-void Athletics::setBonus(const Bonus * const bonus) {
+void Athletics::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(athletics);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Athletics::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(athletics);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

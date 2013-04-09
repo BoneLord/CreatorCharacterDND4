@@ -7,10 +7,17 @@ Dungeoneering::Dungeoneering(bool trndFlag) : Skill(trndFlag) {
 Dungeoneering::~Dungeoneering() {
 }
 
-void Dungeoneering::setBonus(const Bonus * const bonus) {
+void Dungeoneering::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(dungeoneering);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Dungeoneering::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(dungeoneering);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

@@ -7,7 +7,8 @@ class Nature : public Skill {
 public:
     Nature(bool trndFlag = false);
     ~Nature();
-    void setBonus(const Bonus * const bonus);
+    void addBonus(const Bonus * const bonus);
+    void subBonus(const Bonus * const bonus);
     const char * toString() const;
 };
 

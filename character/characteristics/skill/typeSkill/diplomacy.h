@@ -7,7 +7,8 @@ class Diplomacy : public Skill {
 public:
     Diplomacy(bool trndFlag = false);
     ~Diplomacy();
-    void setBonus(const Bonus * const bonus);
+    void addBonus(const Bonus * const bonus);
+    void subBonus(const Bonus * const bonus);
     const char * toString() const;
 };
 

@@ -7,10 +7,17 @@ Stealth::Stealth(bool trndFlag) : Skill(trndFlag) {
 Stealth::~Stealth() {
 }
 
-void Stealth::setBonus(const Bonus * const bonus) {
+void Stealth::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(stealth);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Stealth::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(stealth);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

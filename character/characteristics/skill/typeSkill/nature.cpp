@@ -7,10 +7,17 @@ Nature::Nature(bool trndFlag) : Skill(trndFlag) {
 Nature::~Nature() {
 }
 
-void Nature::setBonus(const Bonus * const bonus) {
+void Nature::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(nature);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Nature::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(nature);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

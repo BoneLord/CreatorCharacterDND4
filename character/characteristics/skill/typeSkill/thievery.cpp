@@ -7,10 +7,17 @@ Thievery::Thievery(bool trndFlag) : Skill(trndFlag) {
 Thievery::~Thievery() {
 }
 
-void Thievery::setBonus(const Bonus * const bonus) {
+void Thievery::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(thievery);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Thievery::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(thievery);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

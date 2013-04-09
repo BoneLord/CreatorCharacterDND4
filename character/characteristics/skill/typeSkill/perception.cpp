@@ -7,10 +7,17 @@ Perception::Perception(bool trndFlag) : Skill(trndFlag) {
 Perception::~Perception() {
 }
 
-void Perception::setBonus(const Bonus * const bonus) {
+void Perception::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(perception);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Perception::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(perception);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

@@ -7,7 +7,8 @@ class Dungeoneering : public Skill {
 public:
     Dungeoneering(bool trndFlag = false);
     ~Dungeoneering();
-    void setBonus(const Bonus * const bonus);
+    void addBonus(const Bonus * const bonus);
+    void subBonus(const Bonus * const bonus);
     const char * toString() const;
 };
 

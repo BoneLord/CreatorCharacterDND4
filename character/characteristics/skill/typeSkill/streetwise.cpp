@@ -7,10 +7,17 @@ Streetwise::Streetwise(bool trndFlag) : Skill(trndFlag) {
 Streetwise::~Streetwise() {
 }
 
-void Streetwise::setBonus(const Bonus * const bonus) {
+void Streetwise::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(streetwise);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Streetwise::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(streetwise);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 

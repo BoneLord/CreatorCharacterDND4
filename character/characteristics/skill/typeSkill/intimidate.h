@@ -7,7 +7,8 @@ class Intimidate : public Skill {
 public:
     Intimidate(bool trndFlag = false);
     ~Intimidate();
-    void setBonus(const Bonus * const bonus);
+    void addBonus(const Bonus * const bonus);
+    void subBonus(const Bonus * const bonus);
     const char * toString() const;
 };
 

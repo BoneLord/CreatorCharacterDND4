@@ -7,10 +7,17 @@ Diplomacy::Diplomacy(bool trndFlag) : Skill(trndFlag) {
 Diplomacy::~Diplomacy() {
 }
 
-void Diplomacy::setBonus(const Bonus * const bonus) {
+void Diplomacy::addBonus(const Bonus * const bonus) {
     std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(diplomacy);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
+    }
+}
+
+void Diplomacy::subBonus(const Bonus * const bonus) {
+    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(diplomacy);
+    if (it != bonus->getBonusToSkill()->end()) {
+        mValue -= (*it).second;
     }
 }
 
