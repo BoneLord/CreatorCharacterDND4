@@ -104,15 +104,6 @@ char* sizeToChar(Size size) {
     return 0;
 }
 
-char* armorKindToChar(ArmorKind armor) {
-    if (armor == lightArmor) {
-        return "lightArmor";
-    }
-    else {
-        return "heavyArmor";
-    }
-}
-
 char* defenseTypeToChar(DefenseType defense) {
     switch (defense) {
     case armorClass:
@@ -195,6 +186,7 @@ int main() {
     if (character.setSkillTrained(diplomacy) < 0) {
         std::cout << "Error7!" << std::endl;
     }
+    const Armor * const plate = new Plate();
     character.setArmor(plate);
     std::cout << "Age: " << character.getAge() << std::endl;
     std::cout << "Gender: " << genderToChar(character.getGender()) << std::endl;
