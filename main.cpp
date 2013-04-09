@@ -28,6 +28,12 @@
 #include "character/characteristics/race/typeRace/halfling.h"
 #include "character/characteristics/race/typeRace/human.h"
 #include "character/characteristics/race/typeRace/tiefling.h"
+#include "character/characteristics/equipment/armor/typeArmor/chainmail.h"
+#include "character/characteristics/equipment/armor/typeArmor/cloth.h"
+#include "character/characteristics/equipment/armor/typeArmor/hide.h"
+#include "character/characteristics/equipment/armor/typeArmor/leather.h"
+#include "character/characteristics/equipment/armor/typeArmor/plate.h"
+#include "character/characteristics/equipment/armor/typeArmor/scale.h"
 
 /**
   Коды ошибок:
@@ -186,7 +192,7 @@ int main() {
     if (character.setSkillTrained(diplomacy) < 0) {
         std::cout << "Error7!" << std::endl;
     }
-    const Armor * const plate = new Plate();
+    Armor * plate = new Plate();
     character.setArmor(plate);
     std::cout << "Age: " << character.getAge() << std::endl;
     std::cout << "Gender: " << genderToChar(character.getGender()) << std::endl;
