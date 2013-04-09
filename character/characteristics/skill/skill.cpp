@@ -36,3 +36,11 @@ AbilityType Skill::getBaseAbility() const {
 bool Skill::isTrained() const {
     return trainedFlag;
 }
+
+void Skill::addBonus(int value) {
+    mValue += value;
+}
+
+void Skill::subBonus(int value) {
+    mValue -= value;
+}
