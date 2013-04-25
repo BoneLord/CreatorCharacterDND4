@@ -1,6 +1,6 @@
 #include "character/characteristics/equipment/armor/heavyarmor.h"
 
-HeavyArmor::HeavyArmor() {
+HeavyArmor::HeavyArmor() : Armor() {
 }
 
 HeavyArmor::~HeavyArmor() {

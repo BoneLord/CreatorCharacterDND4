@@ -1,6 +1,6 @@
 #include "character/characteristics/equipment/armor/typeArmor/hide.h"
 
-Hide::Hide() {
+Hide::Hide() : LightArmor() {
     armorBonus = 3;
     skillPenalty = -1;
     speedPenalty = 0;

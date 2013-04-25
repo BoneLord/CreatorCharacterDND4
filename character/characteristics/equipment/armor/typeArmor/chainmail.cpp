@@ -1,6 +1,6 @@
 #include "character/characteristics/equipment/armor/typeArmor/chainmail.h"
 
-Chainmail::Chainmail() {
+Chainmail::Chainmail() : HeavyArmor() {
     armorBonus = 6;
     skillPenalty = -1;
     speedPenalty = -1;

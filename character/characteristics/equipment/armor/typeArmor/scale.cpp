@@ -1,6 +1,6 @@
 #include "character/characteristics/equipment/armor/typeArmor/scale.h"
 
-Scale::Scale() {
+Scale::Scale() : HeavyArmor() {
     armorBonus = 7;
     skillPenalty = 0;
     speedPenalty = -1;

@@ -1,6 +1,6 @@
 #include "character/characteristics/equipment/armor/typeArmor/cloth.h"
 
-Cloth::Cloth() {
+Cloth::Cloth() : LightArmor() {
     armorBonus = 0;
     skillPenalty = 0;
     speedPenalty = 0;

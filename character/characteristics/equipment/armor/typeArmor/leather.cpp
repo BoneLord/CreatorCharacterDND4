@@ -1,6 +1,6 @@
 #include "character/characteristics/equipment/armor/typeArmor/leather.h"
 
-Leather::Leather() {
+Leather::Leather() : LightArmor() {
     armorBonus = 2;
     skillPenalty = 0;
     speedPenalty = 0;
