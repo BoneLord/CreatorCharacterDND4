@@ -2,6 +2,7 @@
 #define SKILL_H
 
 #include <cmath>
+#include <cstring>
 #include "character/characteristics/abilitytype.h"
 #include "character/characteristics/skill/skilltype.h"
 #include "character/characteristics/bonus/bonus.h"
