@@ -24,15 +24,16 @@ public:
     virtual ~ClassCharacter();
     RoleType getRoleType() const;
     PowerSource getPowerSource() const;
-    const Bonus& getBonus() const;
-    const std::vector<SkillType>* getClassSkill() const;
+    const Bonus * getBonus() const;
+    const std::vector<SkillType> * getClassSkill() const;
     int getHitPointAtFirstLevel() const;
     int getHitPointPerLevel() const;
     int getHealingSurgesPerDay() const;
     int getCountTrainedSkills() const;
-    const std::vector<AbilityType>* getKeyAbility() const;
-    bool isCanTrainSkillAtFirstLevel(SkillType skill) const;
+    const std::vector<AbilityType> * getKeyAbility() const;
+    bool isCanTrainSkill(SkillType skill) const;
     virtual const char * toString() const = 0;
+//    virtual const std::vector<SkillType> * getTrainedSkill() const = 0;
 };
 
 #endif // CLASSCHARACTER_H

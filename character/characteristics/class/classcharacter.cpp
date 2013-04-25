@@ -11,7 +11,11 @@ PowerSource ClassCharacter::getPowerSource() const {
     return power;
 }
 
-const std::vector* ClassCharacter::getClassSkill() const {
+const Bonus * ClassCharacter::getBonus() const {
+    return &bonus;
+}
+
+const std::vector<SkillType> * ClassCharacter::getClassSkill() const {
     return &classSkill;
 }
 
@@ -31,11 +35,11 @@ int ClassCharacter::getCountTrainedSkills() const {
     return countTrainedSkills;
 }
 
-const std::vector* ClassCharacter::getKeyAbility() const {
+const std::vector<AbilityType> * ClassCharacter::getKeyAbility() const {
     return &keyAbility;
 }
 
-bool ClassCharacter::isCanTrainSkillAtFirstLevel(SkillType skill) const {
+bool ClassCharacter::isCanTrainSkill(SkillType skill) const {
     std::vector<SkillType>::const_iterator it = std::find(classSkill.begin(), classSkill.end(), skill);
     if (it == classSkill.end()) {
         return false;
