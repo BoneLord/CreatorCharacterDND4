@@ -8,14 +8,14 @@ Arcana::~Arcana() {
 }
 
 void Arcana::addBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(arcana);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(arcana);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
     }
 }
 
 void Arcana::subBonus(const Bonus *const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(arcana);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(arcana);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue -= (*it).second;
     }

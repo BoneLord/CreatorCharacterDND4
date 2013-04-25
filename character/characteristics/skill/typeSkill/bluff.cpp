@@ -8,14 +8,14 @@ Bluff::~Bluff() {
 }
 
 void Bluff::addBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(bluff);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(bluff);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
     }
 }
 
 void Bluff::subBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(bluff);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(bluff);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue -= (*it).second;
     }

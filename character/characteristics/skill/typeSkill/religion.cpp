@@ -8,14 +8,14 @@ Religion::~Religion() {
 }
 
 void Religion::addBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(religion);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(religion);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
     }
 }
 
 void Religion::subBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(religion);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(religion);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue -= (*it).second;
     }

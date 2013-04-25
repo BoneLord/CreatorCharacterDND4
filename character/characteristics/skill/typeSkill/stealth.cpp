@@ -8,14 +8,14 @@ Stealth::~Stealth() {
 }
 
 void Stealth::addBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(stealth);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(stealth);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
     }
 }
 
 void Stealth::subBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(stealth);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(stealth);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue -= (*it).second;
     }

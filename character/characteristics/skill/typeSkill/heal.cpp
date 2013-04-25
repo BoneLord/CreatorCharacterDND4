@@ -8,14 +8,14 @@ Heal::~Heal() {
 }
 
 void Heal::addBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(heal);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(heal);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
     }
 }
 
 void Heal::subBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(heal);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(heal);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue -= (*it).second;
     }

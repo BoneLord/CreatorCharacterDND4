@@ -8,14 +8,14 @@ Acrobatics::~Acrobatics() {
 }
 
 void Acrobatics::addBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(acrobatics);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(acrobatics);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
     }
 }
 
 void Acrobatics::subBonus(const Bonus *const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(acrobatics);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(acrobatics);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue -= (*it).second;
     }

@@ -8,14 +8,14 @@ Nature::~Nature() {
 }
 
 void Nature::addBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(nature);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(nature);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
     }
 }
 
 void Nature::subBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(nature);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(nature);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue -= (*it).second;
     }

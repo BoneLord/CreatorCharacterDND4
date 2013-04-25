@@ -8,14 +8,14 @@ Streetwise::~Streetwise() {
 }
 
 void Streetwise::addBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(streetwise);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(streetwise);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
     }
 }
 
 void Streetwise::subBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(streetwise);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(streetwise);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue -= (*it).second;
     }

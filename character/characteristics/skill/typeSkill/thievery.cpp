@@ -8,14 +8,14 @@ Thievery::~Thievery() {
 }
 
 void Thievery::addBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(thievery);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(thievery);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue += (*it).second;
     }
 }
 
 void Thievery::subBonus(const Bonus * const bonus) {
-    std::map::const_iterator<SkillType, int> it = bonus->getBonusToSkill()->find(thievery);
+    std::map<SkillType, int>::const_iterator it = bonus->getBonusToSkill()->find(thievery);
     if (it != bonus->getBonusToSkill()->end()) {
         mValue -= (*it).second;
     }
