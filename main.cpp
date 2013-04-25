@@ -48,6 +48,8 @@
   -8 - данный язык вы уже знаете;
   -9 - данную черту вы уже знаете;
   -10 - такой черты для переобучения нет;
+  -11 - данному классу тренировать этот навык нельзя
+  -12 - навык предоставлен классом, отменить тренировку нельзя
 */
 
 class ErrorMessage {
@@ -67,7 +69,7 @@ ErrorMessage::~ErrorMessage() {
 //    return 0;
 //}
 
-char* genderToChar(Gender gender) {
+const char * genderToChar(Gender gender) {
     if (gender == male) {
         return "male";
     }
@@ -76,7 +78,7 @@ char* genderToChar(Gender gender) {
     }
 }
 
-char* alignmentToChar(Alignment alignment) {
+const char * alignmentToChar(Alignment alignment) {
     switch (alignment) {
     case good:
         return "good";
@@ -92,7 +94,7 @@ char* alignmentToChar(Alignment alignment) {
     return 0;
 }
 
-char* sizeToChar(Size size) {
+const char * sizeToChar(Size size) {
     switch (size) {
     case tiny:
         return "tiny";
@@ -110,7 +112,7 @@ char* sizeToChar(Size size) {
     return 0;
 }
 
-char* defenseTypeToChar(DefenseType defense) {
+const char * defenseTypeToChar(DefenseType defense) {
     switch (defense) {
     case armorClass:
         return "armor class";
@@ -124,7 +126,7 @@ char* defenseTypeToChar(DefenseType defense) {
     return 0;
 }
 
-char* languageToChar(Language language) {
+const char * languageToChar(Language language) {
     switch (language) {
     case common:
         return "common";
@@ -150,7 +152,7 @@ char* languageToChar(Language language) {
     return 0;
 }
 
-char* visionToChar(Vision vision) {
+const char * visionToChar(Vision vision) {
     switch (vision) {
     case normal:
         return "normal";
@@ -162,10 +164,28 @@ char* visionToChar(Vision vision) {
     return 0;
 }
 
+void show(const Character * character);
+
 int main() {
+    Character character;
+    character.setAge(21);
+    character.setNameCharacter("Vondal");
+    character.setNamePlayer("Vasya");
+    character.setNameCommand("");
+    character.setGender(male);
+    character.setWeight(190);
+    character.setHeight(100);
+    character.setStrength(17);
+    character.setConstitution(14);
+    character.setDexterity(12);
+    character.setIntellect(11);
+    character.setWisdom(10);
+    character.setCharisma(10);
     Race *race = new Elf();
     ClassCharacter *classCharacter = new Cleric();
-    Character character(race, classCharacter, "Vondal", "Vasya", "", 21, male, 190, 100);
+    character.setRace(race);
+    character.setClass(classCharacter);
+
     if (character.setAlignment(evil) < 0) {
         std::cout << "Selected aligment is not compatible with the chosen deity." << std::endl;
         return 0;
@@ -174,24 +194,24 @@ int main() {
         std::cout << "Selected deity is not compatible with the chosen aligment." << std::endl;
         return 0;
     }
-    if (character.setSkillTrained(insight) < 0) {
-        std::cout << "Error3!" << std::endl;
-    }
-    if (character.setSkillTrained(religion) == -1) {
-        std::cout << "" << std::endl;
-    }
-    if (character.setSkillTrained(arcana) < 0) {
-        std::cout << "Error4!" << std::endl;
-    }
-    if (character.setSkillTrained(history) < 0) {
-        std::cout << "Error5!" << std::endl;
-    }
-    if (character.setSkillTrained(heal) < 0) {
-        std::cout << "Error6!" << std::endl;
-    }
-    if (character.setSkillTrained(diplomacy) < 0) {
-        std::cout << "Error7!" << std::endl;
-    }
+//    if (character.setSkillTrained(insight) < 0) {
+//        std::cout << "Error3!" << std::endl;
+//    }
+//    if (character.setSkillTrained(religion) == -1) {
+//        std::cout << "" << std::endl;
+//    }
+//    if (character.setSkillTrained(arcana) < 0) {
+//        std::cout << "Error4!" << std::endl;
+//    }
+//    if (character.setSkillTrained(history) < 0) {
+//        std::cout << "Error5!" << std::endl;
+//    }
+//    if (character.setSkillTrained(heal) < 0) {
+//        std::cout << "Error6!" << std::endl;
+//    }
+//    if (character.setSkillTrained(diplomacy) < 0) {
+//        std::cout << "Error7!" << std::endl;
+//    }
     Armor * plate = new Plate();
     character.setArmor(plate);
     std::cout << "Age: " << character.getAge() << std::endl;
@@ -308,5 +328,64 @@ int main() {
 //    std::cout << "Armor weight:  " << armor->getWeight() << std::endl;
 //    std::cout << "Armor price:   " << armor->getPrice() << std::endl;
 //    delete armor;
+    character.addExpereance(100000);
+
     return 0;
+}
+
+void show(const Character * character) {
+    std::cout << "Age: " << character.getAge() << std::endl;
+    std::cout << "Gender: " << genderToChar(character.getGender()) << std::endl;
+    std::cout << "Height: " << character.getHeight() << std::endl;
+    std::cout << "Weight: " << character.getWeight() << std::endl;
+    std::cout << "Player name: " << character.getNamePlayer() << std::endl;
+    std::cout << "Character name: " << character.getNameCharacter() << std::endl;
+    std::cout << "Command name: " << character.getNameCommand() << std::endl;
+    std::cout << "Level: " << character.getLevel() << std::endl;
+    std::cout << "Total XP: " << character.getTotalExpereance() << std::endl;
+    std::cout << "Size: " << sizeToChar(character.getSize()) << std::endl;
+    std::cout << "Vision: " << visionToChar(character.getVision()) << std::endl;
+    std::cout << "Alignment: " << alignmentToChar(character.getAlignment()) << std::endl;
+    std::cout << "Deity: " << character.getDeity()->toString() << std::endl;
+    std::cout << "Initiative: " << character.getInitiative() << std::endl;
+    std::cout << "Strength: " << character.getStrScore() << std::endl;
+    std::cout << "Strength mod: " << character.getStrMod() << std::endl;
+    std::cout << "Constitution: " << character.getConScore() << std::endl;
+    std::cout << "Constitution mod: " << character.getConMod() << std::endl;
+    std::cout << "Dexterity: " << character.getDexScore() << std::endl;
+    std::cout << "Dexterity mod: " << character.getDexMod() << std::endl;
+    std::cout << "Intellect: " << character.getIntScore() << std::endl;
+    std::cout << "Intellect mod: " << character.getIntMod() << std::endl;
+    std::cout << "Wisdom: " << character.getWisScore() << std::endl;
+    std::cout << "Wisdom mod: " << character.getWisMod() << std::endl;
+    std::cout << "Charisma: " << character.getChrScore() << std::endl;
+    std::cout << "Charisma mod: " << character.getChrMod() << std::endl;
+    std::cout << "Max hit point: " << character.getMaxHitPoint() << std::endl;
+    std::cout << "Bloodied hp: " << character.getBloodied() << std::endl;
+    std::cout << "Surge value: " << character.getHealingSurgesValue() << std::endl;
+    std::cout << "Surge per day: " << character.getHealingSurgesPerDay() << std::endl;
+    std::cout << "Acrobatics: " << character.getAcrobatics() << std::endl;
+    std::cout << "Arcana: " << character.getArcana() << std::endl;
+    std::cout << "Athletics: " << character.getAthletics() << std::endl;
+    std::cout << "Bluff: " << character.getBluff() << std::endl;
+    std::cout << "Diplomacy: " << character.getDiplomacy() << std::endl;
+    std::cout << "Dungeoneering: " << character.getDungeoneering() << std::endl;
+    std::cout << "Endurance: " << character.getEndurance() << std::endl;
+    std::cout << "Heal: " << character.getHeal() << std::endl;
+    std::cout << "History: " << character.getHistory() << std::endl;
+    std::cout << "Insight: " << character.getInsight() << std::endl;
+    std::cout << "Intimidate: " << character.getIntimidate() << std::endl;
+    std::cout << "Nature: " << character.getNature() << std::endl;
+    std::cout << "Perception: " << character.getPerception() << std::endl;
+    std::cout << "Religion: " << character.getReligion() << std::endl;
+    std::cout << "Stealth: " << character.getStealth() << std::endl;
+    std::cout << "Streetwise: " << character.getStreetwise() << std::endl;
+    std::cout << "Thievery: " << character.getThievery() << std::endl;
+    std::cout << "Armor class: " << character.getArmorClass() << std::endl;
+    std::cout << "Fortitude: " << character.getFortitude() << std::endl;
+    std::cout << "Reflex: " << character.getReflex() << std::endl;
+    std::cout << "Will: " << character.getWill() << std::endl;
+    std::cout << "Speed: " << character.getSpeed() << std::endl;
+    std::cout << "Passive insight: " << character.getPassiveInsight() << std::endl;
+    std::cout << "Passive perception: " << character.getPassivePerception() << std::endl;
 }
