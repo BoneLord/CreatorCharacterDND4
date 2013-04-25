@@ -25,6 +25,10 @@ const std::map<SkillType, int> * Bonus::getBonusToSkill() const {
     return &mSkillBonus;
 }
 
+const std::vector<SkillType> * Bonus::getBonusTrainedSkill() const {
+    return &mTrainedSkill;
+}
+
 void Bonus::setBonus(DefenseType defense, int value) {
     std::map<DefenseType, int>::iterator it = mDefenseBonus.find(defense);
     if (it == mDefenseBonus.end()) {
@@ -50,4 +54,11 @@ void Bonus::setBonus(SkillType skill, int value) {
         return;
     }
     it->second = value;
+}
+
+void Bonus::setBonus(SkillType skill) {
+    std::vector<SkillType>::iterator it = std::find(mTrainedSkill.begin(), mTrainedSkill.end(), skill);
+    if (it == mTrainedSkill.end()) {
+        mTrainedSkill.push_back(skill);
+    }
 }
