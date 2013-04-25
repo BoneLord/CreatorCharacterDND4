@@ -10,7 +10,7 @@
 
 class Human : public Race {
 public:
-    Human(Language language, AbilityType ability);
+    Human(Language language, AbilityType ability, SkillType skill);
     ~Human();
     const char * toString() const;
 };

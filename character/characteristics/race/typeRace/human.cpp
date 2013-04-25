@@ -1,6 +1,6 @@
 #include "character/characteristics/race/typeRace/human.h"
 
-Human::Human(Language language, AbilityType ability) : Race() {
+Human::Human(Language language, AbilityType ability, SkillType skill) : Race() {
     avgMinHeight = 165;
     avgMaxHeight = 185;
     avgMinWeight = 72;
@@ -17,6 +17,8 @@ Human::Human(Language language, AbilityType ability) : Race() {
     bonus.setBonus(fortitude, 1);
     bonus.setBonus(reflex, 1);
     bonus.setBonus(will, 1);
+
+    bonus.setBonus(skill);
 }
 
 Human::~Human() {
