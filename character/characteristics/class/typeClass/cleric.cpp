@@ -8,7 +8,8 @@ Cleric::Cleric() {
     healingSurgesPerDay = 7;
     countTrainedSkills = 3;
     bonus.setBonus(will, 2);
-//    bonus.setBonus(religion, 5); // this skill trained
+
+//    trainedSkill.push_back(religion);
 
     classSkill.push_back(arcana);
     classSkill.push_back(diplomacy);
@@ -27,7 +28,7 @@ Cleric::Cleric() {
 Cleric::~Cleric() {
 }
 
-const std::vector * Cleric::getImplements() const {
+const std::vector<ImplementType> * Cleric::getImplements() const {
     return &implements;
 }
 
@@ -37,3 +38,7 @@ const char * Cleric::toString() const {
     strcpy(pName, name);
     return pName;
 }
+
+//const std::vector<SkillType> * Cleric::getTrainedSkill() const {
+//    return &trainedSkill;
+//}

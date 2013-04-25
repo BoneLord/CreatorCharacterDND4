@@ -11,11 +11,13 @@
 
 class Cleric : public ClassCharacter {
     std::vector<ImplementType> implements;
+//    std::vector<SkillType> trainedSkill;
 public:
     Cleric();
     ~Cleric();
     const std::vector<ImplementType> * getImplements() const;
     const char * toString() const;
+//    const std::vector<SkillType> * getTrainedSkill() const;
 };
 
 #endif // CLERIC_H
