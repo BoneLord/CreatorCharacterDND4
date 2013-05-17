@@ -23,6 +23,7 @@
 
 class SkillTest : public ::testing::Test {
 protected:
+    Skill *mSkill;
     Skill *mAcrobatics;
     Skill *mArcana;
     Skill *mAthletics;
