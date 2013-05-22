@@ -24,23 +24,6 @@
 class SkillTest : public ::testing::Test {
 protected:
     Skill *mSkill;
-    Skill *mAcrobatics;
-    Skill *mArcana;
-    Skill *mAthletics;
-    Skill *mBluff;
-    Skill *mDiplomacy;
-    Skill *mDungeoneering;
-    Skill *mEndurance;
-    Skill *mHeal;
-    Skill *mHistory;
-    Skill *mInsight;
-    Skill *mIntimidate;
-    Skill *mNature;
-    Skill *mPerception;
-    Skill *mReligion;
-    Skill *mStealth;
-    Skill *mStreetwise;
-    Skill *mThievery;
 public:
     SkillTest();
     ~SkillTest();
