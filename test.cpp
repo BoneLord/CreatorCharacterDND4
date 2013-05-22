@@ -7,198 +7,378 @@ int main(int argc, char ** argv) {
 }
 
 // Test skill value
-TEST_F(SkillTest, SkillValueDefault) {
-    mSkill = new Acrobatics();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Arcana();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Athletics();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Bluff();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Diplomacy;
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Dungeoneering();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Endurance();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Heal();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new History();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Insight();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Intimidate();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Nature();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Perception();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Religion();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Stealth();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Streetwise();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-    mSkill = new Thievery();
-    EXPECT_EQ(0, mSkill->getValue());
-    delete mSkill;
-}
-
 TEST_F(SkillTest, SkillValue) {
     mSkill = new Acrobatics();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Arcana();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Athletics();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Bluff();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
-    mSkill = new Diplomacy;
+    mSkill = new Diplomacy();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Dungeoneering();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Endurance();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Heal();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new History();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Insight();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Intimidate();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Nature();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Perception();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Religion();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Stealth();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Streetwise();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
     mSkill = new Thievery();
+    EXPECT_EQ(0, mSkill->getValue());
     mSkill->addBonus(11);
     EXPECT_EQ(11, mSkill->getValue());
     delete mSkill;
-}
-
-
-TEST_F(SkillTest, TNature) {
-  EXPECT_EQ(0, mNature->getValue());
-}
-
-TEST_F(SkillTest, TPerception) {
-  EXPECT_EQ(0, mPerception->getValue());
-}
-
-TEST_F(SkillTest, TReligion) {
-  EXPECT_EQ(0, mReligion->getValue());
-}
-
-TEST_F(SkillTest, TStealth) {
-  EXPECT_EQ(0, mStealth->getValue());
-}
-
-TEST_F(SkillTest, TmStreetwise) {
-  EXPECT_EQ(0, mStreetwise->getValue());
-}
-
-TEST_F(SkillTest, TThievery) {
-  EXPECT_EQ(0, mThievery->getValue());
-}
-
-TEST_F(SkillTest, TAcrobatics) {
-  EXPECT_EQ(0, mAcrobatics->getValue());
-}
-
-TEST_F(SkillTest, TArcana) {
-  EXPECT_EQ(0, mArcana->getValue());
-}
-
-TEST_F(SkillTest, TAthletics) {
-  EXPECT_EQ(0, mAthletics->getValue());
-}
-
-TEST_F(SkillTest, TBluff) {
-  EXPECT_EQ(0, mBluff->getValue());
-}
-
-TEST_F(SkillTest, TDiplomacy) {
-  EXPECT_EQ(0, mDiplomacy->getValue());
-}
-
-TEST_F(SkillTest, TDungeoneering) {
-  EXPECT_EQ(0, mDungeoneering->getValue());
-}
-
-TEST_F(SkillTest, TEndurance) {
-  EXPECT_EQ(0, mEndurance->getValue());
-}
-
-TEST_F(SkillTest, THeal) {
-  EXPECT_EQ(0, mHeal->getValue());
-}
-
-TEST_F(SkillTest, THistory) {
-  EXPECT_EQ(0, mHistory->getValue());
-}
-
-TEST_F(SkillTest, TInsight) {
-  EXPECT_EQ(0, mInsight->getValue());
-}
-
-TEST_F(SkillTest, TIntimidate) {
-  EXPECT_EQ(0, mIntimidate->getValue());
 }
 
 // Test base ability
+TEST_F(SkillTest, SkillAbility) {
+    mSkill = new Acrobatics();
+    EXPECT_EQ(dexterity_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Arcana();
+    EXPECT_EQ(intellect_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Athletics();
+    EXPECT_EQ(strength_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Bluff();
+    EXPECT_EQ(charisma_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Diplomacy();
+    EXPECT_EQ(charisma_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Dungeoneering();
+    EXPECT_EQ(wisdom_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Endurance();
+    EXPECT_EQ(constitution_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Heal();
+    EXPECT_EQ(wisdom_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new History();
+    EXPECT_EQ(intellect_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Insight();
+    EXPECT_EQ(wisdom_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Intimidate();
+    EXPECT_EQ(charisma_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Nature();
+    EXPECT_EQ(wisdom_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Perception();
+    EXPECT_EQ(wisdom_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Religion();
+    EXPECT_EQ(intellect_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Stealth();
+    EXPECT_EQ(dexterity_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Streetwise();
+    EXPECT_EQ(charisma_t, mSkill->getBaseAbility());
+    delete mSkill;
+    mSkill = new Thievery();
+    EXPECT_EQ(dexterity_t, mSkill->getBaseAbility());
+    delete mSkill;
+}
+
+// Test skill train
+TEST_F(SkillTest, SkillTrain) {
+    mSkill = new Acrobatics();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Arcana();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Athletics();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Bluff();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Diplomacy();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Dungeoneering();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Endurance();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Heal();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new History();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Insight();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Intimidate();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Nature();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Perception();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Religion();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Stealth();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Streetwise();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Thievery();
+    EXPECT_FALSE(mSkill->isTrained());
+    mSkill->setTrain();
+    EXPECT_TRUE(mSkill->isTrained());
+    delete mSkill;
+}
+
+// Test skill untrain
+TEST_F(SkillTest, SkillUnTrain) {
+    mSkill = new Acrobatics(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Arcana(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Athletics(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Bluff(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Diplomacy(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Dungeoneering(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Endurance(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Heal(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new History(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Insight(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Intimidate(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Nature(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Perception(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Religion(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Stealth(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Streetwise(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+    mSkill = new Thievery(true);
+    EXPECT_TRUE(mSkill->isTrained());
+    mSkill->setUnTrain();
+    EXPECT_FALSE(mSkill->isTrained());
+    delete mSkill;
+}
+
+//EXPECT_STREQ(ожидаемаястр, действительнаястр);
+TEST_F(SkillTest, SkillName) {
+    mSkill = new Acrobatics();
+    EXPECT_STREQ("Acrobatics", mSkill->toString());
+    delete mSkill;
+    mSkill = new Arcana();
+    EXPECT_STREQ("Arcana", mSkill->toString());
+    delete mSkill;
+    mSkill = new Athletics();
+    EXPECT_STREQ("Athletics", mSkill->toString());
+    delete mSkill;
+    mSkill = new Bluff();
+    EXPECT_STREQ("Bluff", mSkill->toString());
+    delete mSkill;
+    mSkill = new Diplomacy();
+    EXPECT_STREQ("Diplomacy", mSkill->toString());
+    delete mSkill;
+    mSkill = new Dungeoneering();
+    EXPECT_STREQ("Dungeoneering", mSkill->toString());
+    delete mSkill;
+    mSkill = new Endurance();
+    EXPECT_STREQ("Endurance", mSkill->toString());
+    delete mSkill;
+    mSkill = new Heal();
+    EXPECT_STREQ("Heal", mSkill->toString());
+    delete mSkill;
+    mSkill = new History();
+    EXPECT_STREQ("History", mSkill->toString());
+    delete mSkill;
+    mSkill = new Insight();
+    EXPECT_STREQ("Insight", mSkill->toString());
+    delete mSkill;
+    mSkill = new Intimidate();
+    EXPECT_STREQ("Intimidate", mSkill->toString());
+    delete mSkill;
+    mSkill = new Nature();
+    EXPECT_STREQ("Nature", mSkill->toString());
+    delete mSkill;
+    mSkill = new Perception();
+    EXPECT_STREQ("Perception", mSkill->toString());
+    delete mSkill;
+    mSkill = new Religion();
+    EXPECT_STREQ("Religion", mSkill->toString());
+    delete mSkill;
+    mSkill = new Stealth();
+    EXPECT_STREQ("Stealth", mSkill->toString());
+    delete mSkill;
+    mSkill = new Streetwise();
+    EXPECT_STREQ("Streetwise", mSkill->toString());
+    delete mSkill;
+    mSkill = new Thievery();
+    EXPECT_STREQ("Thievery", mSkill->toString());
+    delete mSkill;
+}
