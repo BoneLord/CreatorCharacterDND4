@@ -1,7 +1,7 @@
 #include "character/characteristics/skill/typeSkill/religion.h"
 
 Religion::Religion(bool trndFlag) : Skill(trndFlag) {
-    ability = wisdom_t;
+    ability = intellect_t;
 }
 
 Religion::~Religion() {
