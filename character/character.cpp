@@ -194,7 +194,7 @@ Alignment Character::getAlignment() const {
     return mAlignment;
 }
 
-const IDeity * const Character::getDeity() const {
+const IDeity * Character::getDeity() const {
     return mDeity;
 }
 
@@ -218,11 +218,11 @@ int Character::getTotalExpereance() const {
     return mExpereance;
 }
 
-const Race * const Character::getRace() const {
+const Race * Character::getRace() const {
     return mRace;
 }
 
-const ClassCharacter * const Character::getClass() const {
+const ClassCharacter * Character::getClass() const {
     return mClassCharacter;
 }
 
@@ -432,39 +432,39 @@ int Character::getThievery() const {
     return mThievery->getValue();
 }
 
-const Armor * const Character::getArmor() const {
+const Armor * Character::getArmor() const {
     return mArmor;
 }
 
-const Weapon * const Character::getWeapon() const {
+const Weapon * Character::getWeapon() const {
     return mWeapon;
 }
 
-//const Arms * const Character::getArms(Arms *arms) const {
+//const Arms * Character::getArms(Arms *arms) const {
 //    return mArms;
 //}
 
-//const Feet * const Character::getFeet(Feet *feet) const {
+//const Feet * Character::getFeet(Feet *feet) const {
 //    return mFeet;
 //}
 
-//const Hands * const Character::getHands(Hands *hands) const {
+//const Hands * Character::getHands(Hands *hands) const {
 //    return mHands;
 //}
 
-//const Head * const Character::getHead(Head *head) const {
+//const Head * Character::getHead(Head *head) const {
 //    return mHead;
 //}
 
-//const Ring * const Character::getRingFirst(Ring ring) {
+//const Ring * Character::getRingFirst(Ring ring) {
 //    return mRing1;
 //}
 
-//const Ring * const Character::getRingSecond(Ring ring) {
+//const Ring * Character::getRingSecond(Ring ring) {
 //    return mRing2;
 //}
 
-//const Neck * const Character::getNeck(Neck *neck) const {
+//const Neck * Character::getNeck(Neck *neck) const {
 //    return mNeck;
 //}
 

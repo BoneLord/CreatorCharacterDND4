@@ -118,14 +118,14 @@ public:
     const char * getNameCommand() const;
     Gender getGender() const;
     Alignment getAlignment() const;
-    const IDeity * const getDeity() const;
+    const IDeity * getDeity() const;
     int getWeight() const;
     int getHeight() const;
     int getAge() const;
     int getLevel() const;
     int getTotalExpereance() const;
-    const Race * const getRace() const;
-    const ClassCharacter * const getClass() const;
+    const Race * getRace() const;
+    const ClassCharacter * getClass() const;
     Size getSize() const;
     int getInitiative() const;
     int getMaxHitPoint() const;
@@ -183,15 +183,15 @@ public:
     int getStreetwise() const;
     int getThievery() const;
 
-    const Armor * const getArmor() const;
-    const Weapon * const getWeapon() const;
-//    const Arms * const  getArms(Arms *arms) const;
-//    const Feet * const  getFeet(Feet *feet) const;
-//    const Hands * const  getHands(Hands *hands) const;
-//    const Head * const  getHead(Head *head) const;
-//    const Ring * const getRingFirst(Ring ring);
-//    const Ring * const getRingSecond(Ring ring);
-//    const Neck * const  getNeck(Neck *neck) const;
+    const Armor * getArmor() const;
+    const Weapon * getWeapon() const;
+//    const Arms * getArms(Arms *arms) const;
+//    const Feet * getFeet(Feet *feet) const;
+//    const Hands * getHands(Hands *hands) const;
+//    const Head * getHead(Head *head) const;
+//    const Ring * getRingFirst(Ring ring);
+//    const Ring * getRingSecond(Ring ring);
+//    const Neck * getNeck(Neck *neck) const;
 
     //Learn skill and re-learn
 //    int setSkillTrained(SkillType skillType);
